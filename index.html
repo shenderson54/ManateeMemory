@@ -17,11 +17,11 @@
             <h1>Memory Game</h1>
         </header>
 
-        <div class = 'homePage'>
-                <button id = 'easy'>Easy</button>
-                <button id = 'medium'>Medium</button>
-                <button id = 'hard'>Hard</button>
-                <button id = 'start'>Start Game</button>
+        <div class='homePage'>
+            <button id='easy'>Easy</button>
+            <button id='medium'>Medium</button>
+            <button id='hard'>Hard</button>
+            <button id='start'>Start Game</button>
         </div>
 
 
@@ -68,19 +68,30 @@
             <li class="card match" type="anchor">
                 <i class="fa fa-anchor"></i>
 
+        </ul>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>&#127882; Congratulations &#127882;</h2>
+                <a class="close" href=#>×</a>
+                <div class="content-1">
+                   &#10024;&#127882;Congratulations you're a winner &#127882;&#10024;
+                </div>
+                <div class="content-2">
+                    <p>You made <span id=finalMove> </span> moves </p>
+                    <p>in <span id=totalTime> </span> </p>
+                    <p>Rating: <span id=starRating></span></p>
+                </div>
+                <button id="play-again" onclick="playAgain()">
+                    Play again 😄</a>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src='script.js'></script>
+</body>
 
 
-
-
-
-
-
-
-
-
-
-            <script src='script.js'></script>
-                /body>
-
-                
-                /html>
+    </html>
