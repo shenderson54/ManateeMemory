@@ -3,6 +3,13 @@
     padding: 0;
 }
 
+.container {
+    width: 500px;
+    height: 700px;
+    background-color: aqua;
+    padding-left:150px;
+}
+
 .card-grid{
     width: 80%;
     display: flex;
@@ -26,4 +33,14 @@
 
 .orangeBackground{
     background-color: orange;
+}
+
+.stars{
+    list-style-type: none;
+}
+
+.card{
+
+    list-style-type: none;
+    
 }
