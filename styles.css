@@ -16,8 +16,8 @@ body{
     justify-content: center;
     align-items: center;
     padding-top: 50px;
+    opacity: 0.5;
 }
-
 
 .container {
     width: 500px;
@@ -25,6 +25,7 @@ body{
     background-color: aqua;
     justify-content: center;
     align-items: center;
+    
     
 
 }
