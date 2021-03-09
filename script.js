@@ -23,16 +23,21 @@ difficulty.forEach(level => level.addEventListener('click',(event) => {
 
 // Set # of cards switch statement based on levelSelected (hardcode for now)
 const numberOfCards = 6;
+const iconArray = ['diamond','diamond', 'bolt','bolt', 'anchor','anchor'];
 const startGame = document.getElementById('start');
 const cardGrid = document.querySelector('.card-grid');
+
+
 startGame.addEventListener('click',() => {
 
     for (let i = 0; i < numberOfCards; i++){
         let card = document.createElement('div');
-        // if (i === randomCell){
-        //     card.setAttribute('id','ICONTYPE');
-        // };
+        let icon = document.createElement('i');
+
+        icon.setAttribute('class', `fa fa-${iconArray[i]}`);
         card.classList.add('cardBack');
+        
+        card.append(icon);
         cardGrid.append(card);
     }
 
