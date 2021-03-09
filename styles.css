@@ -3,6 +3,20 @@
     padding: 0;
 }
 
+.card-grid{
+    width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.cardBack{
+    background-color: navy;
+    color: white;
+    width: 20vw;
+    height: 30vw;
+    margin: 10px;
+}
+
 .orangeBackground{
     background-color: orange;
 }
