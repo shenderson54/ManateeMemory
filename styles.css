@@ -8,6 +8,8 @@
     height: 700px;
     background-color: aqua;
     padding-left:150px;
+    
+
 }
 
 .card-grid{
@@ -71,8 +73,8 @@
   flip when you move the mouse over the flip box container */
 .flip-card:hover .flip-card-inner {
 
-    transform: rotateX(180deg);  /* <=====  flips the card up & down ↓↑
-    /* transform: rotateY(180deg);  <=====  flips the card left & right ←→ */
+    /* transform: rotateX(180deg);  <=====  flips the card up & down ↓↑ */
+     transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ */
 }
 
 /* Position the front and back side */
@@ -101,6 +103,6 @@
     background-color: dodgerblue;
 
     color: white;
-     transform: rotateX(180deg); /* <=====  flips the card up & down ↓↑
-    /* transform: rotateY(180deg);  <=====  flips the card left & right ←→ */
+     /* transform: rotateX(180deg); /* <=====  flips the card up & down ↓↑ */
+    transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ */
 }
