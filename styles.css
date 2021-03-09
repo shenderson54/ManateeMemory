@@ -51,7 +51,7 @@
     border: 1px solid #f1f1f1;
     perspective:
         1000px;
-    /* Remove this if you don't want the 3D effect */
+    
 }
 
 /* This 
@@ -71,7 +71,8 @@
   flip when you move the mouse over the flip box container */
 .flip-card:hover .flip-card-inner {
 
-    transform: rotateY(180deg);
+    transform: rotateX(180deg);  /* <=====  flips the card up & down ↓↑
+    /* transform: rotateY(180deg);  <=====  flips the card left & right ←→ */
 }
 
 /* Position the front and back side */
@@ -100,5 +101,6 @@
     background-color: dodgerblue;
 
     color: white;
-    transform: rotateY(180deg);
+     transform: rotateX(180deg); /* <=====  flips the card up & down ↓↑
+    /* transform: rotateY(180deg);  <=====  flips the card left & right ←→ */
 }
