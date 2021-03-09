@@ -16,10 +16,10 @@ body{
     justify-content: center;
     align-items: center;
     padding-top: 50px;
-    opacity: 0.5;
+    opacity: 0.5; /* Just testing this out Thoughts*/
 }
 
-.container {
+.container2 {
     width: 500px;
     height: 700px;
     background-color: aqua;
