@@ -4,13 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker">
     <title></title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<script src = 'script.js'></script>
+    <div class="container">
+        <header>
+            <h1>Memory Game</h1>
+        </header>
 
-</body>
+        <section class="score-panel">
+            <ul class="stars">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
 
-</html>
+            <span class="moves">0</span> Move(s)
+
+            <div class="timer">
+            </div>
+
+            <div class="restart" onclick=startGame()>
+                <i class="fa fa-repeat"></i>
+            </div>
+        </section>
+
+        <ul class="deck" id="card-deck">
+            <li class="card" type="diamond">
+                <i class="fa fa-diamond"></i>
+            </li>
+
+            <li class="card" type="bolt">
+                <i class="fa fa-bolt"></i>
+            </li>
+
+            <li class="card open show" type="bolt">
+                <i class="fa fa-bolt"></i>
+            </li>
+
+            <li class="card match" type="anchor">
+                <i class="fa fa-anchor"></i>
+            </li>
+
+            <li class="card" type="diamond">
+                <i class="fa fa-diamond"></i>
+            </li>
+
+            <li class="card match" type="anchor">
+                <i class="fa fa-anchor"></i>
+
+
+
+
+
+
+
+
+
+
+
+
+            <script src='script.js'>
+                </script>
+                /body>
+
+                
+                /html>
