@@ -13,7 +13,7 @@ difficulty.forEach(level => level.addEventListener('click',(event) => {
         levelSelected = event.target.getAttribute('id')
     }
     
-    //if not new page and difficuty has been set before, undo background selection and reset the level to the new value.
+    //if not new page and difficulty has been set before, undo background selection and reset the level to the new value.
     else{
         document.getElementById(`${levelSelected}`).classList.remove('orangeBackground');
         event.target.classList.add('orangeBackground');
