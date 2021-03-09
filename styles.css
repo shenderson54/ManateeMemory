@@ -3,11 +3,29 @@
     padding: 0;
 }
 
+html {
+    background: url(assets/manateepic.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    opacity: 0.5;
+}
+
 .container {
     width: 500px;
     height: 700px;
     background-color: aqua;
-    padding-left:150px;
+    justify-content: center;
+    align-items: center;
+    
     
 
 }
