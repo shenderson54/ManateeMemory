@@ -13,25 +13,25 @@ html {
 
 body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: 50px;
-    opacity: 0.5; /* Just testing this out Thoughts*/
+    /* opacity: 0.5; Just testing this out Thoughts */
 }
 
-.container2 {
-    width: 500px;
-    height: 700px;
-    background-color: aqua;
+
+
+main {
+    width: 80%;
+    /* height: 700px; */
+    background-color: rgba(0, 255, 255, 0.5); /*what if we did the opacity just on background?*/
     justify-content: center;
     align-items: center;
-    
-    
-
 }
 
 .card-grid{
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
 }
@@ -112,7 +112,8 @@ body{
   image is missing) */
 .flip-card-front {
     background-color: #bbb;
-
+    background-image: url(./assets/manateeCard-01.png);
+    background-size: cover;
     color: black;
 }
 
