@@ -70,19 +70,27 @@ startGame.addEventListener('click',() => {
     //Create a div for every card with the icon inside
     for (let i = 0; i < numberOfCards; i++){
         let card = document.createElement('div');
+        let cardInner = document.createElement('div');
+        let cardFront = document.createElement('div');
+        let cardBack = document.createElement('div');
         let icon = document.createElement('i');
 
         icon.classList.add('fas');
         icon.classList.add(`fa-${randomIconArray[i]}`);
         card.id = randomIconArray[i];
-        card.classList.add('cardBack');
-        card.classList.add('card');
+
+        cardInner.classList.add('flip-card-inner');
+        cardFront.classList.add('flip-card-front');
+        cardBack.classList.add('flip-card-back');
+        card.classList.add('flip-card');
 
         
-        card.append(icon);
+        cardBack.append(icon);
+        cardInner.append(cardFront);
+        cardInner.append(cardBack);
+        card.append(cardInner);
         cardGrid.append(card);
     }
-
 });
 
 })();
