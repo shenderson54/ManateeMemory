@@ -76,6 +76,8 @@ startGame.addEventListener('click',() => {
         icon.classList.add(`fa-${randomIconArray[i]}`);
         card.id = randomIconArray[i];
         card.classList.add('cardBack');
+        card.classList.add('card');
+
         
         card.append(icon);
         cardGrid.append(card);
