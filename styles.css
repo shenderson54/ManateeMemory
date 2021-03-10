@@ -60,16 +60,17 @@ main {
 }
 
 .card{
-    background-color: navy;
+    background: url(assets/manateeCard-01.png);
     color: white;
-    width: 20vw;
-    height: 30vw;
+    width: 200px;
+    height: 250px;
     margin: 10px;
     flex-wrap: wrap;
     display: inline-block;
     position: relative;
     margin-left: 5%;
-    border-radius: 20px;
+    border-radius: 10px;
+
 }
 
 i{
