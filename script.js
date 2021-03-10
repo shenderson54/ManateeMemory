@@ -31,6 +31,7 @@ function setNumberOfCards(){
         case 'hard':
             numberOfCards = 18;
             break;
+        default: numberOfCards = 6;
     };
 }
 
