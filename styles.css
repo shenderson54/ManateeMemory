@@ -60,7 +60,22 @@ main {
 }
 
 .card{
-    list-style-type: none;
+    background-color: navy;
+    color: white;
+    width: 20vw;
+    height: 30vw;
+    margin: 10px;
+    flex-wrap: wrap;
+    display: inline-block;
+    position: relative;
+    margin-left: 5%;
+    border-radius: 20px;
+}
+
+i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .flip-card {
@@ -73,6 +88,7 @@ main {
         1000px;
     
 }
+
 
 /* This 
   container is needed to position the front and back side */
@@ -124,4 +140,9 @@ main {
     color: white;
      /* transform: rotateX(180deg); /* <=====  flips the card up & down ↓↑ */
     transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ */
+}
+
+.homePage{
+    z-index: 1;
+    display: flex;
 }
