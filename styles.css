@@ -139,9 +139,7 @@ i{
 /* Style the back side */
 .flip-card-back {
     background-color: dodgerblue;
-
     color: white;
-     /* transform: rotateX(180deg); /* <=====  flips the card up & down ↓↑ */
     transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ */
 }
 
