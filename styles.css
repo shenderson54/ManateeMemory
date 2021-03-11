@@ -81,11 +81,19 @@ h1{
 
 /* Styles for in-game controls/move counts */
 .game-controls{
-    height: 3vh;
+    height: 5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px;
+}
+
+.game-controls button{
+    color: white;
+    background-color: #56ccc2;
+    padding: 10px 10px;
+    width: 20vw;
+    max-width: 150px;
 }
 
 /*we can add this back when we work on the star rating system*/
