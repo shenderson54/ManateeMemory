@@ -62,6 +62,13 @@ function randomIcons(){
 //Read in start button and section for cards to be created in
 const startGame = document.getElementById('start');
 const cardGrid = document.querySelector('.card-grid');
+    
+    cardGrid.addEventListener("click", (event) => {
+        console.log(event)
+        event.target.parentNode.style.transform = "rotateY(180deg)";
+        event.target.childNode.style.transform = "rotateY(180deg)";
+    
+})
 
 startGame.addEventListener('click',() => {
     //Run random icon function to get new random array

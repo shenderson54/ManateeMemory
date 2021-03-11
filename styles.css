@@ -56,10 +56,10 @@ main {
 .orangeBackground{
     background-color: orange;
 }
-
-.stars{
-    list-style-type: none;
-}
+/*we can add this back when we work on the star rating system*/
+/* .stars{
+    list-style-type: none; 
+} */
 
 .card{
     background: url(assets/manateeCard-01.png);
@@ -108,11 +108,11 @@ i{
 
 /* Do an horizontal 
   flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
+/* .flip-card:hover .flip-card-inner { */
 
     /* transform: rotateX(180deg);  <=====  flips the card up & down ↓↑ */
-     transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ */
-}
+     /*transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ 
+}*/
 
 /* Position the front and back side */
 .flip-card-front,
@@ -137,11 +137,11 @@ i{
 }
 
 /* Style the back side */
-.flip-card-back {
+ .flip-card-back { 
     background-color: dodgerblue;
 
     color: white;
-     /* transform: rotateX(180deg); /* <=====  flips the card up & down ↓↑ */
+      /*transform: rotateX(180deg); /* <=====  flips the card up & down ↓↑ */
     transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ */
 }
 
