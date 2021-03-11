@@ -34,6 +34,7 @@ header{
     display: flex;
     justify-content: center;
     color: white;
+    font-size: 70px;
 }
 
 
@@ -167,5 +168,17 @@ i{
     padding: 20px 100px;
     color: white;
     background-color: #56ccc2;
+}
+
+#container3{
+    visibility: hidden;
+}
+
+.popup{
+    visibility: hidden;
+}
+
+.score-panel{
+    visibility: hidden;
 }
 
