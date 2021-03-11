@@ -1,4 +1,4 @@
-(function(){
+(function () {
   // Read in level difficulty buttons and create variable to store selection
   const difficulty = document.querySelectorAll(".difficulty");
   let levelSelected = null;
@@ -15,9 +15,6 @@
       //Otherwise set background and read in difficulty level
       event.target.classList.add("orangeBackground");
       levelSelected = event.target.id;
-
-      //Call Number of Cards function
-      setNumberOfCards();
     })
   );
 
@@ -54,6 +51,10 @@
 
   //Create random array of icon names based on numberOfCards
   function randomIcons() {
+    if (randomIconArray.length > 0) {
+      randomIconArray.length = 0;
+    }
+
     //Add doubles of each icon until number of cards is met
     for (let i = 0; i < numberOfCards / 2; i++) {
       randomIconArray.push(iconArray[i]);
@@ -69,71 +70,54 @@
     }
   }
 
-  //function that starts the timer nested into the startGame function
-let timer = document.querySelector(".timer");
-
-let minutesLabel = document.getElementById("minutes");
-let secondsLabel = document.getElementById("seconds");
-let totalSeconds = 0;
-
-const timerStart = () => {
-  const setTime = () => {
-    if (matches === 6) {
-      clearInterval(refreshTimer);
+  function clearCards() {
+    let cards = document.querySelectorAll(".flip-card");
+    if (cards.length > 0) {
+      for (let card of cards) {
+        // let childCard = cardGrid.firstChild;
+        cardGrid.remove(card);
+      }
     }
-    ++totalSeconds;
-    secondsLabel.innerHTML = pad(totalSeconds % 60);
-    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-  };
-  let refreshTimer = setInterval(setTime, 1000);
-  let pad = (val) => {
-    let valString = val + "";
-    if (valString.length < 2) {
-      return "0" + valString;
-    } else {
-      return valString;
-    }
-  };
-};
-
+  }
 
   //Read in start button and section for cards to be created in
   const startGame = document.getElementById("start");
   const cardGrid = document.querySelector(".card-grid");
 
   startGame.addEventListener("click", () => {
-    //Run random icon function to get new random array
-    randomIcons();
+    //If cards exist then exit event
+    let cards = document.querySelectorAll(".flip-card");
+    if (cards.length > 0) {
+    } else {
+      //Call Number of Cards function
+      setNumberOfCards();
 
-    //Start timer
-    startTimer(500,0);
-    //pause timer
-    pause.addEventListener("click", pauseTimer, false);
-    //resume
-    resume.addEventListener("click", resumeTimer, false);
+      //Run random icon function to get new random array
+      randomIcons();
 
-    //Create a div for every card with the icon inside
-    for (let i = 0; i < numberOfCards; i++) {
-      let card = document.createElement("div");
-      let cardInner = document.createElement("div");
-      let cardFront = document.createElement("div");
-      let cardBack = document.createElement("div");
-      let icon = document.createElement("i");
+      //Create a div for every card with the icon inside
+      for (let i = 0; i < numberOfCards; i++) {
+        let card = document.createElement("div");
+        let cardInner = document.createElement("div");
+        let cardFront = document.createElement("div");
+        let cardBack = document.createElement("div");
+        let icon = document.createElement("i");
 
-      icon.classList.add("fas");
-      icon.classList.add(`fa-${randomIconArray[i]}`);
-      card.id = randomIconArray[i];
+        icon.classList.add("fas");
+        icon.classList.add(`fa-${randomIconArray[i]}`);
+        card.id = randomIconArray[i];
 
-      cardInner.classList.add("flip-card-inner");
-      cardFront.classList.add("flip-card-front");
-      cardBack.classList.add("flip-card-back");
-      card.classList.add("flip-card");
+        cardInner.classList.add("flip-card-inner");
+        cardFront.classList.add("flip-card-front");
+        cardBack.classList.add("flip-card-back");
+        card.classList.add("flip-card");
 
-      cardBack.append(icon);
-      cardInner.append(cardFront);
-      cardInner.append(cardBack);
-      card.append(cardInner);
-      cardGrid.append(card);
+        cardBack.append(icon);
+        cardInner.append(cardFront);
+        cardInner.append(cardBack);
+        card.append(cardInner);
+        cardGrid.append(card);
+      }
     }
   });
 })();
