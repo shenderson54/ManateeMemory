@@ -113,10 +113,10 @@ function startTimer(seconds, container, oncomplete) {
     randomIcons();
 
     //Start timer
-    startTimer(300,0);
+    startTimer(500,0);
     //pause timer
     pause.addEventListener("click", pauseTimer, false);
-    //resume timer
+    //resume
     resume.addEventListener("click", resumeTimer, false);
 
     //Create a div for every card with the icon inside
