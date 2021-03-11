@@ -2,7 +2,8 @@
 
 
 // Default Home Page
-const defaultPage = document.getElementsByTagName('body')
+    const defaultPage = document.getElementsByTagName('body');
+    
     
 
 
