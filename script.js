@@ -80,13 +80,14 @@
     }
   }
 
-  let timer = document.getElementById("timer");
+  //Timer function which is triggered when game is started
+  let timer = document.querySelector(".timer");
 
   let minutesLabel = document.getElementById("minutes");
   let secondsLabel = document.getElementById("seconds");
   let totalSeconds = 0;
 
-  const startTimer = () => {
+  const timerStart = () => {
     const setTime = () => {
       if (matches === 6) {
         clearInterval(refreshTimer);
@@ -96,6 +97,14 @@
       minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
     };
     let refreshTimer = setInterval(setTime, 1000);
+    let pad = (val) => {
+      let valString = val + "";
+      if (valString.length < 2) {
+        return "0" + valString;
+      } else {
+        return valString;
+      }
+    };
   };
 
   //Read in start button and section for cards to be created in
