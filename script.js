@@ -70,38 +70,31 @@
   }
 
   //function that starts the timer nested into the startGame function
-function startTimer(seconds, container, oncomplete) {
-  var startTime,
-    timer,
-    obj,
-    ms = seconds * 1000,
-    display = document.getElementById("timer");
-  obj = {};
-  obj.resume = function () {
-    startTime = new Date().getTime();
-    timer = setInterval(obj.step, 250); // adjust this number to affect granularity
-    // lower numbers are more accurate, but more CPU-expensive
-  };
-  obj.pause = function () {
-    ms = obj.step();
-    clearInterval(timer);
-  };
-  obj.step = function () {
-    var now = Math.max(0, ms - (new Date().getTime() - startTime)),
-      m = Math.floor(now / 60000),
-      s = Math.floor(now / 1000) % 60;
-    s = (s < 10 ? "0" : "") + s;
-    display.innerHTML = m + ":" + s;
-    if (now == 0) {
-      clearInterval(timer);
-      obj.resume = function () {};
-      if (oncomplete) oncomplete();
+let timer = document.querySelector(".timer");
+
+let minutesLabel = document.getElementById("minutes");
+let secondsLabel = document.getElementById("seconds");
+let totalSeconds = 0;
+
+const timerStart = () => {
+  const setTime = () => {
+    if (matches === 6) {
+      clearInterval(refreshTimer);
     }
-    return now;
+    ++totalSeconds;
+    secondsLabel.innerHTML = pad(totalSeconds % 60);
+    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
   };
-  obj.resume();
-  return obj;
-}
+  let refreshTimer = setInterval(setTime, 1000);
+  let pad = (val) => {
+    let valString = val + "";
+    if (valString.length < 2) {
+      return "0" + valString;
+    } else {
+      return valString;
+    }
+  };
+};
 
 
   //Read in start button and section for cards to be created in
