@@ -67,18 +67,6 @@ function randomIcons(){
     };
 };
 
-function clearCards(){
-    let cards = document.querySelectorAll('.flip-card');
-    if (cards.length > 0){
-        for (let card of cards){
-            // let childCard = cardGrid.firstChild;
-            cardGrid.remove(card);
-        };
-    };
-    
-};
-
-
 
 //Read in start button and section for cards to be created in
 const startGame = document.getElementById('start');
