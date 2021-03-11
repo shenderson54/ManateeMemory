@@ -1,6 +1,13 @@
 (function(){
 
 
+// Default Home Page
+    const defaultPage = document.getElementsByTagName('body');
+    
+    
+
+
+
 // Read in level difficulty buttons and create variable to store selection
 const difficulty = document.querySelectorAll('.difficulty');
 let levelSelected = null;
@@ -10,6 +17,7 @@ difficulty.forEach(level => level.addEventListener('click',(event) => {
     //if level has been picked already, undo previous color 
     if(levelSelected){
         document.getElementById(`${levelSelected}`).classList.remove('orangeBackground');
+        
     }
     //Otherwise set background and read in difficulty level
     event.target.classList.add('orangeBackground');
