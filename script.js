@@ -87,7 +87,7 @@ const cardGrid = document.querySelector('.card-grid');
     cardGrid.addEventListener("click", (event) => {
         console.log(event)
         event.target.parentNode.style.transform = "rotateY(180deg)";
-        event.target.childNode.style.transform = "rotateY(180deg)";
+        
     
 })
 

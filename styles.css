@@ -20,6 +20,10 @@ body{
     /* opacity: 0.5; Just testing this out Thoughts */
 }
 
+#start {
+    display: none;
+}
+
 .content-1 {
     display: none;
 }
