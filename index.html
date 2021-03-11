@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"> -->
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker">
     <title>Manatee Memory Game</title>
@@ -24,15 +23,21 @@
         <header>
             <h1>Memory Game</h1>
         </header>
-        <div class="game-controls">
+
+        <div class="game-controls" id='container3'>
             <button class="pause button" onclick="pauseButton()">Pause</button>
+
             <div id="timer"></div>
-            <button class="reset button" onclick="resetButton()">Start Over</button>
+            <button class="resetButton" onclick="resetButton()">Start Over</button>
         </div>
+      
+
         
         <section class="score-panel game-controls">
+
             
             <p><span class="moves">0</span> Move(s)</p>
+
 
             <div class="timer">
             </div>
@@ -42,30 +47,31 @@
             </div>
         </section>
 
-        <div id="popup1" class="overlay display-none">
-            <div class="popup">
-                <h2>&#127882; Congratulations &#127882;</h2>
-                <a class="close" href=#>×</a>
-                <div class="content-1">
-                    &#10024; Congratulations you're a winner &#10024;
+
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>&#127882; Congratulations &#127882;</h2>
+                    <a class="close" href=#>×</a>
+                    <div class="content-1">
+                        &#10024; Congratulations you're a winner &#10024;
+                    </div>
+                    <div class="content-2">
+                        <p>You made <span id=finalMove> </span> moves </p>
+                        <p>in <span id=totalTime> </span> </p>
+                        <p>Rating: <span id=starRating></span></p>
+                    </div>
+                    <button id="play-again" onclick="playAgain()">
+                        Play again </a>
+                    </button>
                 </div>
-                <div class="content-2">
-                    <p>You made <span id=finalMove> </span> moves </p>
-                    <p>in <span id=totalTime> </span> </p>
-                    <p>Rating: <span id=starRating></span></p>
-                </div>
-                <button id="play-again" onclick="playAgain()">
-                    Play again </a>
-                </button>
             </div>
-        
-        </div>
-             
+
+       
 
         <section class='card-grid'>
 
         </section>
-        
+
 
         <script src='script.js'></script>
         <script src="https://kit.fontawesome.com/f888296f54.js" crossorigin="anonymous"></script>

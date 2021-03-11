@@ -1,6 +1,13 @@
 (function(){
 
 
+// Default Home Page
+    const defaultPage = document.getElementsByTagName('body');
+    
+    
+
+
+
 // Read in level difficulty buttons and create variable to store selection
 const difficulty = document.querySelectorAll('.difficulty');
 let levelSelected = null;
@@ -10,6 +17,7 @@ difficulty.forEach(level => level.addEventListener('click',(event) => {
     //if level has been picked already, undo previous color 
     if(levelSelected){
         document.getElementById(`${levelSelected}`).classList.remove('orangeBackground');
+        
     }
     //Otherwise set background and read in difficulty level
     event.target.classList.add('orangeBackground');
@@ -63,6 +71,13 @@ function randomIcons(){
 //Read in start button and section for cards to be created in
 const startGame = document.getElementById('start');
 const cardGrid = document.querySelector('.card-grid');
+    
+    cardGrid.addEventListener("click", (event) => {
+        console.log(event)
+        event.target.parentNode.style.transform = "rotateY(180deg)";
+        event.target.childNode.style.transform = "rotateY(180deg)";
+    
+})
 
 
 startGame.addEventListener('click',() => {
