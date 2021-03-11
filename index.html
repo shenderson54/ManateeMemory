@@ -24,13 +24,13 @@
         <header>
             <h1>Memory Game</h1>
         </header>
-        <div id=container3>
+        <div class="game-controls">
             <button class="pause button" onclick="pauseButton()">Pause</button>
             <div id="timer"></div>
             <button class="reset button" onclick="resetButton()">Start Over</button>
         </div>
         
-        <section class="score-panel">
+        <section class="score-panel game-controls">
             
             <p><span class="moves">0</span> Move(s)</p>
 
@@ -42,7 +42,7 @@
             </div>
         </section>
 
-        <div id="popup1" class="overlay">
+        <div id="popup1" class="overlay display-none">
             <div class="popup">
                 <h2>&#127882; Congratulations &#127882;</h2>
                 <a class="close" href=#>×</a>
