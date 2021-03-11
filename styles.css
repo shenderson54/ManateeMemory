@@ -44,10 +44,10 @@ header{
 .orangeBackground{
     background-color: orange;
 }
-
-.stars{
-    list-style-type: none;
-}
+/*we can add this back when we work on the star rating system*/
+/* .stars{
+    list-style-type: none; 
+} */
 
 .homePage{
     z-index: 1;
@@ -82,10 +82,15 @@ header{
     transform-style: preserve-3d;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ */
-}
+
+/* Do an horizontal 
+  flip when you move the mouse over the flip box container */
+/* .flip-card:hover .flip-card-inner { */
+
+    /* transform: rotateX(180deg);  <=====  flips the card up & down ↓↑ */
+     /*transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ 
+}*/
+
 
 /* Position the front and back side */
 .flip-card-front,
@@ -106,12 +111,16 @@ header{
 }
 
 /* Style the back side */
+
+
+
 .flip-card-back {
     background-color: #324947;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+
 
     transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ */
 }
