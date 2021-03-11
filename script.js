@@ -67,46 +67,6 @@ function randomIcons(){
     }
   }
 
-  function clearCards() {
-    let cards = document.querySelectorAll(".flip-card");
-    if (cards.length > 0) {
-      for (let card of cards) {
-        // let childCard = cardGrid.firstChild;
-        cardGrid.remove(card);
-      }
-    }
-  }  
-
-  //function that starts the timer when the game starts
-  let timer = document.querySelector("#timer");
-
-  let minutesLabel = document.getElementById("minutes");
-  let secondsLabel = document.getElementById("seconds");
-  let totalSeconds = 0;
-
-  const startTimer = () => {
-    const setTime = () => {
-    //I added this code in here (although not used yet) but maybe useful for when the game restarts.
-    //    if (matches === numberOfCards) {
-    //    clearInterval(refreshTimer);
-    //   }
-      ++totalSeconds;
-      secondsLabel.innerHTML = pad(totalSeconds % 60);
-      minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-    };
-
-    let refreshTimer = setInterval(setTime, 1000);
-    let pad = (val) => {
-      let valString = val + "";
-      if (valString.length < 2) {
-        return "0" + valString;
-      } else {
-        return valString;
-      }
-    };
-  };
-};
-
 //deletes any existing cards in cardGrid area
 function clearCards() {
     let cards = document.querySelectorAll(".flip-card");
