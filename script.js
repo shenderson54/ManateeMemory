@@ -16,11 +16,11 @@ let numberOfCards = null;
 difficulty.forEach(level => level.addEventListener('click',(event) => {
     //if level has been picked already, undo previous color 
     if(levelSelected){
-        document.getElementById(`${levelSelected}`).classList.remove('orangeBackground');
+        document.getElementById(`${levelSelected}`).classList.remove('buttonSelectBackground');
         
     }
     //Otherwise set background and read in difficulty level
-    event.target.classList.add('orangeBackground');
+    event.target.classList.add('buttonSelectBackground');
     levelSelected = event.target.id;
 
 }));
@@ -107,15 +107,58 @@ function randomIcons(){
   };
 };
 
+//deletes any existing cards in cardGrid area
+function clearCards() {
+    let cards = document.querySelectorAll(".flip-card");
+    if (cards.length > 0) {
+      for (let card of cards) {
+        // let childCard = cardGrid.firstChild;
+        cardGrid.remove(card);
+      }
+    }
+}  
+
+//function that starts the timer when the game starts
+let timer = document.querySelector("#timer");
+
+let minutesLabel = document.getElementById("minutes");
+let secondsLabel = document.getElementById("seconds");
+let totalSeconds = 0;
+
+const startTimer = () => {
+  const setTime = () => {
+  //I added this code in here (although not used yet) but maybe useful for when the game restarts.
+  //    if (matches === numberOfCards) {
+  //    clearInterval(refreshTimer);
+  //   }
+    ++totalSeconds;
+    secondsLabel.innerHTML = pad(totalSeconds % 60);
+    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+  };
+
+  let refreshTimer = setInterval(setTime, 1000);
+  let pad = (val) => {
+    let valString = val + "";
+    if (valString.length < 2) {
+      return "0" + valString;
+    } else {
+      return valString;
+    }
+  };
+};
+
 
 //Read in start button and section for cards to be created in
 const startGame = document.getElementById('start');
 const cardGrid = document.querySelector('.card-grid');
-    
-    cardGrid.addEventListener("click", (event) => {
-        console.log(event)
-        event.target.parentNode.style.transform = "rotateY(180deg)";
-        event.target.childNode.style.transform = "rotateY(180deg)";
+const elementStart = document.querySelectorAll('.start-items');
+const gameControls = document.querySelectorAll('.game-controls');
+
+
+cardGrid.addEventListener("click", (event) => {
+    // console.log(event)
+    event.target.parentNode.style.transform = "rotateY(180deg)";
+    // event.target.childNode.style.transform = "rotateY(180deg)";
     
 })
 
@@ -126,6 +169,14 @@ startGame.addEventListener('click',() => {
     if (cards.length > 0){
         
     }else{
+        //Show game-controls and hide start-items
+        elementStart.forEach(element => {
+            element.classList.add("display-none");
+        });
+        gameControls.forEach(element => {
+            element.classList.remove("display-none");
+        });
+
         //Call Number of Cards function
         setNumberOfCards();
         
@@ -134,6 +185,14 @@ startGame.addEventListener('click',() => {
       
         //Start timer when game is started
         startTimer();
+
+        //Set initial # of matches at start
+        let numberMatchesLeft = numberOfCards/2;
+        document.getElementById('matches-left').innerText = numberMatchesLeft;
+
+        //Start timer when game is started
+        startTimer();
+
 
         //Create a div for every card with the icon inside
         for (let i = 0; i < numberOfCards; i++){
