@@ -20,9 +20,7 @@ body{
     /* opacity: 0.5; Just testing this out Thoughts */
 }
 
-#start {
-    display: none;
-}
+
 
 .content-1 {
     display: none;
@@ -34,7 +32,6 @@ body{
 
 main {
     width: 80%;
-
     height: 700px;
     background-color: rgba(0, 255, 255, 0.5); /*what if we did the opacity just on background?*/
 /*     max-height: 80vh; */
@@ -148,7 +145,7 @@ header{
 }
 
 #start{
-    position: absolute;
+    /* position: absolute; */
     display: block;
     padding: 20px 100px;
     color: white;
@@ -166,6 +163,7 @@ header{
 .score-panel{
     visibility: hidden;}
 /* Style the icon size on back of card */
+
 .flip-card-back i{
     font-size: 3em;
 }
