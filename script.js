@@ -67,6 +67,17 @@ function randomIcons(){
     };
 };
 
+//deletes any existing cards in cardGrid area
+function clearCards() {
+    let cards = document.querySelectorAll(".flip-card");
+    if (cards.length > 0) {
+      for (let card of cards) {
+        // let childCard = cardGrid.firstChild;
+        cardGrid.remove(card);
+      }
+    }
+}  
+
 //function that starts the timer when the game starts
 let timer = document.querySelector("#timer");
 
@@ -131,6 +142,10 @@ startGame.addEventListener('click',() => {
         
         //Run random icon function to get new random array
         randomIcons();
+
+        //Set initial # of matches at start
+        let numberMatchesLeft = numberOfCards/2;
+        document.getElementById('matches-left').innerText = numberMatchesLeft;
 
         //Start timer when game is started
         startTimer();
