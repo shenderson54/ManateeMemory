@@ -78,34 +78,8 @@
         cardGrid.remove(card);
       }
     }
-  }
+  }  
 
-  //Timer function which is triggered when game is started
-  let timer = document.querySelector(".timer");
-
-  let minutesLabel = document.getElementById("minutes");
-  let secondsLabel = document.getElementById("seconds");
-  let totalSeconds = 0;
-
-  const timerStart = () => {
-    const setTime = () => {
-      if (matches === 6) {
-        clearInterval(refreshTimer);
-      }
-      ++totalSeconds;
-      secondsLabel.innerHTML = pad(totalSeconds % 60);
-      minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-    };
-    let refreshTimer = setInterval(setTime, 1000);
-    let pad = (val) => {
-      let valString = val + "";
-      if (valString.length < 2) {
-        return "0" + valString;
-      } else {
-        return valString;
-      }
-    };
-  };
 
   //Read in start button and section for cards to be created in
   const startGame = document.getElementById("start");
@@ -123,7 +97,10 @@
       randomIcons();
 
       //Start timer when game is started
-      startTimer();
+      let seconds = 0;
+      setInterval(function () {
+        timer.innerHTML = seconds++;
+      }, 1000);
 
       //Create a div for every card with the icon inside
       for (let i = 0; i < numberOfCards; i++) {
