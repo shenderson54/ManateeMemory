@@ -24,34 +24,22 @@ body{
 
 main {
     width: 80%;
-    /* height: 700px; */
+
+    height: 700px;
     background-color: rgba(0, 255, 255, 0.5); /*what if we did the opacity just on background?*/
+/*     max-height: 80vh; */
+    padding: 5%;
     justify-content: center;
     align-items: center;
 }
 
-
-
-.card-grid{
-    width: 100%;
+header{
     display: flex;
-    flex-flow: row wrap;
-}
-
-.cardBack{
-    background-color: navy;
+    justify-content: center;
     color: white;
-    width: 20vw;
-    height: 30vw;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 70px;
 }
 
-.card-grid i{
-    font-size: 3em;
-}
 
 .orangeBackground{
     background-color: orange;
@@ -61,50 +49,39 @@ main {
     list-style-type: none; 
 } */
 
-.card{
-    background: url(assets/manateeCard-01.png);
-    color: white;
-    width: 200px;
-    height: 250px;
-    margin: 0px;
-    flex-wrap: wrap;
-    display: inline-block;
-    position: relative;
-    margin-left: 5%;
-    border-radius: 10px;
-
-}
-
-i{
+.homePage{
+    z-index: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
+
+/* Game Area Styling */
+.card-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+
+/* Card Styling */
 .flip-card {
     background-color: transparent;
-    width: 200px;
-
-    height: 250px;
-    border: 1px solid #f1f1f1;
-    perspective:
-        1000px;
-    
+    width: 25vw;
+    height: 31vw;
+    perspective: 1000px;
 }
 
-
-/* This 
-  container is needed to position the front and back side */
-
+/* This container is needed to position the front and back side */
 .flip-card-inner {
     position: relative;
     width: 100%;
-
     height: 100%;
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
+
 
 /* Do an horizontal 
   flip when you move the mouse over the flip box container */
@@ -114,38 +91,72 @@ i{
      /*transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ 
 }*/
 
+
 /* Position the front and back side */
 .flip-card-front,
 .flip-card-back {
-
     position: absolute;
     width: 100%;
     height: 100%;
 
     -webkit-backface-visibility: hidden;
-
     backface-visibility: hidden;
 }
 
-/* Style the front side (fallback if 
-  image is missing) */
+/* Style the front side (fallback if image is missing) */
 .flip-card-front {
     background-color: #bbb;
     background-image: url(./assets/manateeCard-01.png);
     background-size: cover;
-    color: black;
 }
 
 /* Style the back side */
- .flip-card-back { 
-    background-color: dodgerblue;
 
+
+
+.flip-card-back {
+    background-color: #324947;
     color: white;
-      /*transform: rotateX(180deg); /* <=====  flips the card up & down ↓↑ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
     transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ */
 }
 
+
 .homePage{
     z-index: 1;
-    display: flex;
+    position: absolute;
 }
+
+.difficulty{
+  padding: 20px 50px;
+  color: white;
+  background-color: #56ccc2;
+}
+
+#start{
+    position: absolute;
+    display: block;
+    padding: 20px 100px;
+    color: white;
+    background-color: #56ccc2;
+}
+
+#container3{
+    visibility: hidden;
+}
+
+.popup{
+    visibility: hidden;
+}
+
+.score-panel{
+    visibility: hidden;
+/* Style the icon size on back of card */
+.flip-card-back i{
+    font-size: 3em;
+}
+

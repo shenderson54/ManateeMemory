@@ -1,6 +1,13 @@
 (function(){
 
 
+// Default Home Page
+    const defaultPage = document.getElementsByTagName('body');
+    
+    
+
+
+
 // Read in level difficulty buttons and create variable to store selection
 const difficulty = document.querySelectorAll('.difficulty');
 let levelSelected = null;
@@ -10,14 +17,13 @@ difficulty.forEach(level => level.addEventListener('click',(event) => {
     //if level has been picked already, undo previous color 
     if(levelSelected){
         document.getElementById(`${levelSelected}`).classList.remove('orangeBackground');
+        
     }
     //Otherwise set background and read in difficulty level
     event.target.classList.add('orangeBackground');
     levelSelected = event.target.id;
 
-    //Call Number of Cards function
-    setNumberOfCards();
-}))
+}));
 
 // Set # of cards based on levelSelected 
 function setNumberOfCards(){
@@ -33,7 +39,7 @@ function setNumberOfCards(){
             break;
         default: numberOfCards = 6;
     };
-}
+};
 
 
 //Array of icon names and placeholder for random order array
@@ -42,6 +48,10 @@ let randomIconArray =[];
 
 //Create random array of icon names based on numberOfCards
 function randomIcons(){
+    if (randomIconArray.length > 0){
+        randomIconArray.length=0;
+    };
+    
     //Add doubles of each icon until number of cards is met
     for (let i = 0; i < numberOfCards/2; i++){
         randomIconArray.push(iconArray[i]);
@@ -55,7 +65,18 @@ function randomIcons(){
         randomIconArray[i] = randomIconArray[j];
         randomIconArray[j] = temp;
     };
-}
+};
+
+function clearCards(){
+    let cards = document.querySelectorAll('.flip-card');
+    if (cards.length > 0){
+        for (let card of cards){
+            // let childCard = cardGrid.firstChild;
+            cardGrid.remove(card);
+        };
+    };
+    
+};
 
 
 
@@ -70,34 +91,46 @@ const cardGrid = document.querySelector('.card-grid');
     
 })
 
+
 startGame.addEventListener('click',() => {
-    //Run random icon function to get new random array
-    randomIcons();
-
-    //Create a div for every card with the icon inside
-    for (let i = 0; i < numberOfCards; i++){
-        let card = document.createElement('div');
-        let cardInner = document.createElement('div');
-        let cardFront = document.createElement('div');
-        let cardBack = document.createElement('div');
-        let icon = document.createElement('i');
-
-        icon.classList.add('fas');
-        icon.classList.add(`fa-${randomIconArray[i]}`);
-        card.id = randomIconArray[i];
-
-        cardInner.classList.add('flip-card-inner');
-        cardFront.classList.add('flip-card-front');
-        cardBack.classList.add('flip-card-back');
-        card.classList.add('flip-card');
-
+    //If cards exist then exit event
+    let cards = document.querySelectorAll('.flip-card');
+    if (cards.length > 0){
         
-        cardBack.append(icon);
-        cardInner.append(cardFront);
-        cardInner.append(cardBack);
-        card.append(cardInner);
-        cardGrid.append(card);
+    }else{
+        //Call Number of Cards function
+        setNumberOfCards();
+        
+        //Run random icon function to get new random array
+        randomIcons();
+
+        //Create a div for every card with the icon inside
+        for (let i = 0; i < numberOfCards; i++){
+            let card = document.createElement('div');
+            let cardInner = document.createElement('div');
+            let cardFront = document.createElement('div');
+            let cardBack = document.createElement('div');
+            let icon = document.createElement('i');
+
+            icon.classList.add('fas');
+            icon.classList.add(`fa-${randomIconArray[i]}`);
+            card.id = randomIconArray[i];
+
+            cardInner.classList.add('flip-card-inner');
+            cardFront.classList.add('flip-card-front');
+            cardBack.classList.add('flip-card-back');
+            card.classList.add('flip-card');
+            
+            cardBack.append(icon);
+            cardInner.append(cardFront);
+            cardInner.append(cardBack);
+            card.append(cardInner);
+            cardGrid.append(card);
     }
+    }
+
+    
+    
 });
 
 })();
