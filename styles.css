@@ -20,7 +20,13 @@ body{
     /* opacity: 0.5; Just testing this out Thoughts */
 }
 
+.content-1 {
+    display: none;
+}
 
+.content-2 {
+    display: none;
+}
 
 main {
     width: 80%;
@@ -154,9 +160,11 @@ header{
 }
 
 .score-panel{
-    visibility: hidden;
+    visibility: hidden;}
 /* Style the icon size on back of card */
 .flip-card-back i{
     font-size: 3em;
 }
+
+
 
