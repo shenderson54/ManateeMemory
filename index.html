@@ -11,20 +11,19 @@
 </head>
 
 <body>
-    <div class='homePage'>
-        <button class='difficulty' id='easy'>Easy</button>
-        <button class='difficulty' id='medium'>Medium</button>
-        <button class='difficulty' id='hard'>Hard</button>
-        <button id='start'>Start Game</button>
-    </div>
-
-
     <main>
-        <header>
+        <header class='start-items'>
             <h1>Memory Game</h1>
         </header>
 
-        <div class="game-controls" id='container3'>
+        <div class='homePage start-items'>
+            <button class='difficulty' id='easy'>Easy</button>
+            <button class='difficulty' id='medium'>Medium</button>
+            <button class='difficulty' id='hard'>Hard</button>
+            <button id='start'>Start Game</button>
+        </div>
+
+        <div class="game-controls display-none" id='container3'>
             <button class="pause button" onclick="pauseButton()">Pause</button>
 
             <div id="timer"></div>
@@ -33,23 +32,32 @@
       
 
         
-        <section class="score-panel game-controls">
+        <section class="score-panel game-controls display-none">
 
+            <div class='moves-made'>
+                <p>
+                    <span class="moves">
+                        0
+                    </span> 
+                    Moves Made
+                </p>
+            </div>
             
-            <p><span class="moves">0</span> Move(s)</p>
 
-
-            <div class="timer">
+            <div class='matches-left'>
+                <p>
+                    <span class="matches">
+                        6
+                    </span> 
+                    Matches Left
+                </p>
             </div>
 
-            <div class="restart" onclick=startGame()>
-                <i class="fa fa-repeat"></i>
-            </div>
         </section>
 
 
-            <div id="popup1" class="overlay">
-                <div class="popup">
+            <!-- <div id="popup1" class="overlay"> -->
+                <div class="popup display-none">
                     <h2>&#127882; Congratulations &#127882;</h2>
                     <a class="close" href=#>×</a>
                     <div class="content-1">
@@ -64,7 +72,7 @@
                         Play again </a>
                     </button>
                 </div>
-            </div>
+            <!-- </div> -->
 
        
 

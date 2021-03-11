@@ -16,11 +16,11 @@ let numberOfCards = null;
 difficulty.forEach(level => level.addEventListener('click',(event) => {
     //if level has been picked already, undo previous color 
     if(levelSelected){
-        document.getElementById(`${levelSelected}`).classList.remove('orangeBackground');
+        document.getElementById(`${levelSelected}`).classList.remove('buttonSelectBackground');
         
     }
     //Otherwise set background and read in difficulty level
-    event.target.classList.add('orangeBackground');
+    event.target.classList.add('buttonSelectBackground');
     levelSelected = event.target.id;
 
 }));
@@ -71,11 +71,14 @@ function randomIcons(){
 //Read in start button and section for cards to be created in
 const startGame = document.getElementById('start');
 const cardGrid = document.querySelector('.card-grid');
-    
-    cardGrid.addEventListener("click", (event) => {
-        console.log(event)
-        event.target.parentNode.style.transform = "rotateY(180deg)";
-        event.target.childNode.style.transform = "rotateY(180deg)";
+const elementStart = document.querySelectorAll('.start-items');
+const gameControls = document.querySelectorAll('.game-controls');
+
+
+cardGrid.addEventListener("click", (event) => {
+    console.log(event)
+    event.target.parentNode.style.transform = "rotateY(180deg)";
+    event.target.childNode.style.transform = "rotateY(180deg)";
     
 })
 
@@ -86,6 +89,14 @@ startGame.addEventListener('click',() => {
     if (cards.length > 0){
         
     }else{
+        //Show game-controls and hide start-items
+        elementStart.forEach(element => {
+            element.classList.add("display-none");
+        });
+        gameControls.forEach(element => {
+            element.classList.remove("display-none");
+        });
+
         //Call Number of Cards function
         setNumberOfCards();
         

@@ -16,46 +16,70 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 50px;
+    /* padding-top: 50px; */
     /* opacity: 0.5; Just testing this out Thoughts */
 }
 
 
 main {
     width: 80%;
-    min-height: 50vh; /*Kept height and min-height*/
-    height: 700px;
+    /* min-height: 90vh; Kept height and min-height */
+    /* height: 700px; */
     background-color: rgba(0, 255, 255, 0.5); 
 /*     max-height: 80vh; */
     padding: 5%;
+    margin: 5%;
     justify-content: center;
     align-items: center;
 }
 
-header{
+
+
+
+
+
+/* Start Menu Styling (Header & Buttons) */
+/* header{
     display: flex;
     justify-content: center;
+    text-align: center;
     color: white;
     font-size: 70px;
-}
-
-.orangeBackground{
-    background-color: orange;
-}
-/*we can add this back when we work on the star rating system*/
-/* .stars{
-    list-style-type: none; 
 } */
+
+h1{
+    text-align: center;
+    color: white;
+    font-size: 60px;
+}
 
 .homePage{
     z-index: 1;
     display: flex;
+    flex-direction: column;
+    margin: 5vh auto;
+    max-width: 300px;
+    /* position: absolute; */
 }
 
-h1{
-    text-align: center;
+.difficulty{
+  padding: 20px 50px;
+  margin: 3px auto;
+  width: 80%;
+  color: white;
+  background-color: #56ccc2;
 }
 
+#start{
+    /* position: absolute; */
+    /* display: block; */
+    padding: 20px 100px;
+    margin-top: 20px;
+    color: white;
+    background-color: #56ccc2;
+}
+
+/* Styles for in-game controls/move counts */
 .game-controls{
     height: 3vh;
     display: flex;
@@ -64,13 +88,28 @@ h1{
     margin: 10px;
 }
 
-.display-none{
-    display: none;
-}
+/*we can add this back when we work on the star rating system*/
+/* .stars{
+    list-style-type: none; 
+} */
 
-.visibility-hidden{
+
+
+/* Styles for Congrats! Popup*/
+
+/* #container3{
     visibility: hidden;
 }
+
+.popup{
+    visibility: hidden;
+}
+
+.score-panel{
+    visibility: hidden;
+} */
+
+
 
 /* Game Area Styling */
 .card-grid{
@@ -79,6 +118,7 @@ h1{
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
 }
+
 
 
 /* Card Styling */
@@ -99,16 +139,6 @@ h1{
     transform-style: preserve-3d;
 }
 
-
-/* Do an horizontal 
-  flip when you move the mouse over the flip box container */
-/* .flip-card:hover .flip-card-inner { */
-
-    /* transform: rotateX(180deg);  <=====  flips the card up & down ↓↑ */
-     /*transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ 
-}*/
-
-
 /* Position the front and back side */
 .flip-card-front,
 .flip-card-back {
@@ -128,9 +158,6 @@ h1{
 }
 
 /* Style the back side */
-
-
-
 .flip-card-back {
     background-color: #324947;
     color: white;
@@ -138,42 +165,25 @@ h1{
     justify-content: center;
     align-items: center;
 
-
     transform: rotateY(180deg);  /*<=====  flips the card left & right ←→ */
 }
 
-
-.homePage{
-    z-index: 1;
-    position: absolute;
-}
-
-.difficulty{
-  padding: 20px 50px;
-  color: white;
-  background-color: #56ccc2;
-}
-
-#start{
-    position: absolute;
-    display: block;
-    padding: 20px 100px;
-    color: white;
-    background-color: #56ccc2;
-}
-
-#container3{
-    visibility: hidden;
-}
-
-.popup{
-    visibility: hidden;
-}
-
-.score-panel{
-    visibility: hidden;
 /* Style the icon size on back of card */
 .flip-card-back i{
     font-size: 3em;
+}
+
+
+/* Generic Style Classes */
+.buttonSelectBackground{
+    background-color: #324947;
+}
+
+.display-none{
+    display: none;
+}
+
+.visibility-hidden{
+    visibility: hidden;
 }
 
