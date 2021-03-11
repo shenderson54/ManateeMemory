@@ -80,6 +80,33 @@
     }
   }  
 
+  //function that starts the timer when the game starts
+  let timer = document.querySelector("#timer");
+
+  let minutesLabel = document.getElementById("minutes");
+  let secondsLabel = document.getElementById("seconds");
+  let totalSeconds = 0;
+
+  const startTimer = () => {
+    const setTime = () => {
+    //I added this code in here (although not used yet) but maybe useful for when the game restarts.
+    //    if (matches === numberOfCards) {
+    //    clearInterval(refreshTimer);
+    //   }
+      ++totalSeconds;
+      secondsLabel.innerHTML = pad(totalSeconds % 60);
+      minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+    };
+    let refreshTimer = setInterval(setTime, 1000);
+    let pad = (val) => {
+      let valString = val + "";
+      if (valString.length < 2) {
+        return "0" + valString;
+      } else {
+        return valString;
+      }
+    };
+  };
 
   //Read in start button and section for cards to be created in
   const startGame = document.getElementById("start");
@@ -97,10 +124,7 @@
       randomIcons();
 
       //Start timer when game is started
-      let seconds = 0;
-      setInterval(function () {
-        timer.innerHTML = seconds++;
-      }, 1000);
+      startTimer();
 
       //Create a div for every card with the icon inside
       for (let i = 0; i < numberOfCards; i++) {
