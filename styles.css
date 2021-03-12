@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Coda', sans-serif;
 }
 
 html {
@@ -11,41 +12,23 @@ html {
     background-size: cover;
 }
 
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* padding-top: 50px; */
-    /* opacity: 0.5; Just testing this out Thoughts */
-}
-
 
 main {
     width: 80%;
-    /* min-height: 90vh; Kept height and min-height */
+    min-height: 70vh; 
     /* height: 700px; */
     background-color: rgba(0, 255, 255, 0.5); 
 /*     max-height: 80vh; */
     padding: 5%;
     margin: 5%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 
-
-
-
-
 /* Start Menu Styling (Header & Buttons) */
-/* header{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    font-size: 70px;
-} */
 
 h1{
     text-align: center;
@@ -60,6 +43,10 @@ h1{
     margin: 5vh auto;
     max-width: 300px;
     /* position: absolute; */
+}
+
+.homePage button{
+    font-size: 1.2em;
 }
 
 .difficulty{
@@ -79,8 +66,10 @@ h1{
     background-color: #56ccc2;
 }
 
+
 /* Styles for in-game controls/move counts */
 .game-controls{
+    width: 90%;
     height: 5vh;
     display: flex;
     justify-content: space-between;
@@ -88,12 +77,13 @@ h1{
     margin: 10px;
 }
 
-.game-controls button{
+.game-controls button, .popup button{
     color: white;
     background-color: #56ccc2;
     padding: 10px 10px;
     width: 20vw;
     max-width: 150px;
+    font-size: 1em;
 }
 
 /*we can add this back when we work on the star rating system*/
@@ -104,18 +94,35 @@ h1{
 
 
 /* Styles for Congrats! Popup*/
-
-/* #container3{
-    visibility: hidden;
-}
-
 .popup{
-    visibility: hidden;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.729);
+    padding: 15% 5%;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.score-panel{
-    visibility: hidden;
-} */
+.popup p{
+    display: inline;
+}
+
+.content-1{
+    margin: 5%;
+    font-size: 1.25em;
+}
+
+.content-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+
+
 
 
 
