@@ -115,27 +115,9 @@
     const elementStart = document.querySelectorAll('.start-items');
     const gameControls = document.querySelectorAll('.game-controls');
 
-    let click1 = null;
-    let click2 = null;
-
-    cardGrid.addEventListener("click", (event) => {
-        // console.log(event)
-        event.target.parentNode.style.transform = "rotateY(180deg)";
-
-        if (!click1) {
-            click1 = event.target.id;
-        } else if (!click2) {
-            click2 = event.target.id;
-            //logic for if click 1 = click 2 .visibility-hidden
-            // if not match then flip over after some time
-        }
-        console.log(click1);
-        console.log(click2);
 
 
-    })
 
-    
 
 
     startGame.addEventListener('click', () => {
@@ -165,7 +147,25 @@
             let numberMatchesLeft = numberOfCards / 2;
             document.getElementById('matches-left').innerText = numberMatchesLeft;
 
+            let click1 = null;
+            let click2 = null;
 
+            cardGrid.addEventListener("click", (event) => {
+                // console.log(event)
+                event.target.parentNode.style.transform = "rotateY(180deg)";
+
+                if (!click1) {
+                    click1 = event.target.id;
+                } else if (!click2) {
+                    click2 = event.target.id;
+                    //logic for if click 1 = click 2 .visibility-hidden
+                    // if not match then flip over after some time
+                }
+                console.log(click1);
+                console.log(click2);
+
+
+            })
 
             //Create a div for every card with the icon inside
             for (let i = 0; i < numberOfCards; i++) {
