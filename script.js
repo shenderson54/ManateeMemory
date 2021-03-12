@@ -135,23 +135,7 @@
 
     })
 
-    function matching() {
-        matches++;
-        clickedCards[0].classList.remove('open', 'show');
-        clickedCards[0].classList.add('match', 'pulse');
-        event.target.classList.remove('open', 'show');
-        event.target.classList.add('match', 'pulse');
-        clickedCards = [];
-    }
-
-    function notMatching() {
-        setTimeout(function () {
-            clickedCards[0].classList.remove('open', 'show');
-            clickedCards[1].classList.remove('open', 'show');
-            clickedCards = [];
-        }, 600);
-
-    }
+    
 
 
     startGame.addEventListener('click', () => {
