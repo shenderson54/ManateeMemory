@@ -82,6 +82,7 @@
             icon.classList.add('fas');
             icon.classList.add(`fa-${randomIconArray[i]}`);
             cardFront.id = randomIconArray[i];
+            icon.setAttribute("alt",`${cardFront.id}`);
     
             cardInner.classList.add('flip-card-inner');
             cardFront.classList.add('flip-card-front');
