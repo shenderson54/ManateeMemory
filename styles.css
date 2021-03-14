@@ -28,13 +28,13 @@ main {
     /* height: 700px; */
     background-color: rgba(0, 255, 255, 0.5); 
 /*     max-height: 80vh; */
-    padding: 5%;
+    padding: 10% 5% 15% 5%;
     margin: 5%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    border-radius: 0 150px 0 150px;
+    border-radius: 0 100px 0 100px;
 
 }
 
@@ -63,7 +63,8 @@ h1{
     display: flex;
     flex-direction: column;
     margin: 5vh auto;
-    max-width: 300px;
+    width: 100%;
+    max-width: 250px;
     /* position: absolute; */
 }
 
@@ -72,8 +73,8 @@ h1{
 }
 
 .difficulty{
-  padding: 20px 50px;
-  margin: 3px auto;
+  padding: 5% 10%;
+  margin: 2.5% auto;
   width: 80%;
   color: white;
   background-color: #56ccc2;
@@ -82,8 +83,8 @@ h1{
 #start{
     /* position: absolute; */
     /* display: block; */
-    padding: 20px 100px;
-    margin-top: 20px;
+    padding: 5% 10%;
+    margin-top: 7.5%;
     color: white;
     background-color: #56ccc2;
 }
@@ -96,6 +97,7 @@ h1{
     justify-content: space-between;
     align-items: center;
     margin: 10px;
+    font-size: 0.8em;
 }
 
 .game-controls button, .popup button{
@@ -103,10 +105,14 @@ h1{
     background-color: #56ccc2;
     padding: 10px 10px;
     width: 20vw;
+    min-width: 100px;
     max-width: 150px;
     font-size: 1em;
 }
 
+#timer{
+    font-size: 1.25em;
+}
 /*we can add this back when we work on the star rating system*/
 /* .stars{
     list-style-type: none; 
@@ -116,7 +122,7 @@ h1{
 
 /* Styles for Congrats! Popup*/
 .popup{
-    width: 50%;
+    width: 70%;
     background-color: rgba(255, 255, 255, 0.729);
     padding: 15% 5%;
     margin: 5%;
@@ -128,11 +134,16 @@ h1{
 
 .popup p{
     display: inline;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.1em;
 }
 
 .content-1{
     margin: 5%;
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 .content-2{
@@ -141,6 +152,7 @@ h1{
     justify-content: center;
     align-items: center;
     margin: 5%;
+    font-size: 0.9em;
 }
 
 
@@ -222,4 +234,56 @@ h1{
 
 .visibility-hidden{
     visibility: hidden;
+}
+
+@media only screen and (min-width: 400px){
+
+    .game-controls{
+        font-size: 1em;
+    }
+
+    .game-controls button, .popup button{
+        font-size: 1em;
+    }
+
+    #timer{
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (min-width: 600px){
+
+    main{
+        padding: 5% 5% 10% 5%;
+    }
+
+    .homePage{
+        max-width: 300px;
+    }
+
+    .popup{
+        width: 60%;
+        max-width: 400px;
+    }
+    
+
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    .content-1{
+        font-size: 1.25em;
+    }
+    
+    .content-2{
+        font-size: 1em;
+    }
+
+    .display-none{
+        display: none;
+    }
+
+    .visibility-hidden{
+        visibility: hidden;
+    }
 }
