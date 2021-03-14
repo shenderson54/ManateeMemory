@@ -1,13 +1,6 @@
 (function () {
 
 
-    // Default Home Page
-    const defaultPage = document.getElementsByTagName('body');
-
-
-
-
-
     // Read in level difficulty buttons and create variable to store selection
     const difficulty = document.querySelectorAll('.difficulty');
     let levelSelected = null;
@@ -196,4 +189,14 @@
 
     });
 
+
+ // Start game over 
+
+const startOvrBtn = document.querySelector('.reset-button');
+startOvrBtn.addEventListener('click', () => {
+
+    location.reload();
+});
+
+   
 })();
