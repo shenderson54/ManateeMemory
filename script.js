@@ -9,6 +9,7 @@
     const gameControls = document.querySelectorAll('.game-controls');
     const pauseButton = document.querySelector('.pause');
     const startOvrBtn = document.querySelector('.reset-button');
+    const playAgainButton = document.getElementById('play-again');
     let timer = document.querySelector("#timer");
     let minutesLabel = document.getElementById("minutes");
     let secondsLabel = document.getElementById("seconds");
@@ -19,8 +20,7 @@
 
     let levelSelected = null;
     let numberOfCards = null;
-
-
+    let numberMovesMade = 0;
     let numberMatchesLeft = null;
     let totalSeconds = 0;
     let click1 = null;
@@ -134,6 +134,41 @@
         };
     };
 
+
+    function cardsMismatch(card1,card2){
+        card1.parentNode.style.transform = "rotateY(0deg)";
+        card2.parentNode.style.transform = "rotateY(0deg)";
+
+        numberMovesMade += 1;
+        document.getElementById('moves-made').innerText = numberMovesMade;
+    };
+
+    function cardsMatch(card1,card2){
+        card1.parentNode.classList.add('visibility-hidden');
+        card2.parentNode.classList.add('visibility-hidden');
+    
+        numberMatchesLeft -= 1;
+        document.getElementById('matches-left').innerText = numberMatchesLeft;
+    
+        numberMovesMade += 1;
+        document.getElementById('moves-made').innerText = numberMovesMade;
+    
+        //If number matches = 0 show congrats screen
+        if(numberMatchesLeft===0){
+            updateCongratsScreen();
+        }
+        
+    }
+
+    function updateCongratsScreen(){
+        cardGrid.classList.add('display-none');
+        document.querySelector('.popup').classList.remove('display-none');
+        document.getElementById("startMatches").innerText = numberOfCards/2;
+        document.getElementById("finalMove").innerText = numberMovesMade;
+        document.getElementById("totalMinutes").innerText = minutesLabel.innerText;
+        document.getElementById("totalSeconds").innerText = secondsLabel.innerText;
+    }
+
     difficulty.forEach(level => level.addEventListener('click', (event) => {
         //if level has been picked already, undo previous color 
         if (levelSelected) {
@@ -183,21 +218,32 @@
 
     // Click matching logic
     cardGrid.addEventListener("click", (event) => {
-        // console.log(event)
-        event.target.parentNode.style.transform = "rotateY(180deg)";
+        if(event.target===cardGrid){
+            //If click is not exactly on a card, dont do anything
+        } else {
+            event.target.parentNode.style.transform = "rotateY(180deg)";
+            if(click1 && click2){
+                click1 = event.target;
+                click2 = null;
+            } else{
+                if (!click1) {
+                    click1 = event.target;
+                } else if (!click2) {
+                    click2 = event.target;
+                    
+                    setTimeout( () => {
+                        if(click1.id !== click2.id){
+                            cardsMismatch(click1, click2);
+                        }else{
+                            cardsMatch(click1, click2);
+                        }
+                    }, 1000);
 
-        if (!click1) {
-            click1 = event.target.id;
-        } else if (!click2) {
-            click2 = event.target.id;
-            //logic for if click 1 = click 2 .visibility-hidden
-            // if not match then flip over after some time
+                }
+            }
         }
-        console.log(click1);
-        console.log(click2);
 
-
-    })
+    });
 
 
     // Start game over 
@@ -206,6 +252,11 @@
         location.reload();
     });
 
+    // Play again button, same as start over button
+    playAgainButton.addEventListener('click', () => {
+
+        location.reload();
+    });
 
    
 })();
