@@ -3,20 +3,28 @@
 
     // Read in level difficulty buttons and create variable to store selection
     const difficulty = document.querySelectorAll('.difficulty');
+    const startGame = document.getElementById('start');
+    const cardGrid = document.querySelector('.card-grid');
+    const elementStart = document.querySelectorAll('.start-items');
+    const gameControls = document.querySelectorAll('.game-controls');
+    const pauseButton = document.querySelector('.pause');
+    const startOvrBtn = document.querySelector('.reset-button');
+    let timer = document.querySelector("#timer");
+    let minutesLabel = document.getElementById("minutes");
+    let secondsLabel = document.getElementById("seconds");
+
+    const iconArray = ['gem', 'bolt', 'anchor', 'fish', 'crown', 'dragon', 'moon', 'heart', 'tree'];
+    let randomIconArray = [];
+
     let levelSelected = null;
     let numberOfCards = null;
 
-    difficulty.forEach(level => level.addEventListener('click', (event) => {
-        //if level has been picked already, undo previous color 
-        if (levelSelected) {
-            document.getElementById(`${levelSelected}`).classList.remove('buttonSelectBackground');
 
-        }
-        //Otherwise set background and read in difficulty level
-        event.target.classList.add('buttonSelectBackground');
-        levelSelected = event.target.id;
-
-    }));
+    let numberMatchesLeft = null;
+    let totalSeconds = 0;
+    let click1 = null;
+    let click2 = null;
+    
 
     // Set # of cards based on levelSelected 
     function setNumberOfCards() {
@@ -36,9 +44,6 @@
     };
 
 
-    //Array of icon names and placeholder for random order array
-    const iconArray = ['gem', 'bolt', 'anchor', 'fish', 'crown', 'dragon', 'moon', 'heart', 'tree'];
-    let randomIconArray = [];
 
     //Create random array of icon names based on numberOfCards
     function randomIcons() {
@@ -61,30 +66,43 @@
         }
     }
 
-    //deletes any existing cards in cardGrid area
-    function clearCards() {
-        let cards = document.querySelectorAll(".flip-card");
-        if (cards.length > 0) {
-            for (let card of cards) {
-                // let childCard = cardGrid.firstChild;
-                cardGrid.remove(card);
-            }
-        }
+    /**
+     * Create a div for every card with the icon inside
+     */
+     function createCards(){
+    
+        for (let i = 0; i < numberOfCards; i++){
+            let card = document.createElement('div');
+            let cardInner = document.createElement('div');
+            let cardFront = document.createElement('div');
+            let cardBack = document.createElement('div');
+            let icon = document.createElement('i');
+    
+            icon.classList.add('fas');
+            icon.classList.add(`fa-${randomIconArray[i]}`);
+            cardFront.id = randomIconArray[i];
+    
+            cardInner.classList.add('flip-card-inner');
+            cardFront.classList.add('flip-card-front');
+            cardBack.classList.add('flip-card-back');
+            card.classList.add('flip-card');
+            
+            cardBack.append(icon);
+            cardInner.append(cardFront);
+            cardInner.append(cardBack);
+            card.append(cardInner);
+            cardGrid.append(card);
+        };
     }
 
+
     //function that starts the timer when the game starts
-    let timer = document.querySelector("#timer");
-
-    let minutesLabel = document.getElementById("minutes");
-    let secondsLabel = document.getElementById("seconds");
-    let totalSeconds = 0;
-
     const startTimer = () => {
         const setTime = () => {
             //I added this code in here (although not used yet) but maybe useful for when the game restarts.
-            //    if (matches === numberOfCards) {
-            //    clearInterval(refreshTimer);
-            //   }
+               if (numberMatchesLeft === 0) {
+               clearInterval(refreshTimer);
+              }
             ++totalSeconds;
             secondsLabel.innerHTML = pad(totalSeconds % 60);
             minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
@@ -102,15 +120,18 @@
     };
 
 
-    //Read in start button and section for cards to be created in
-    const startGame = document.getElementById('start');
-    const cardGrid = document.querySelector('.card-grid');
-    const elementStart = document.querySelectorAll('.start-items');
-    const gameControls = document.querySelectorAll('.game-controls');
 
+    difficulty.forEach(level => level.addEventListener('click', (event) => {
+        //if level has been picked already, undo previous color 
+        if (levelSelected) {
+            document.getElementById(`${levelSelected}`).classList.remove('buttonSelectBackground');
 
+        }
+        //Otherwise set background and read in difficulty level
+        event.target.classList.add('buttonSelectBackground');
+        levelSelected = event.target.id;
 
-
+    }));
 
 
     startGame.addEventListener('click', () => {
@@ -137,66 +158,41 @@
             startTimer();
 
             //Set initial # of matches at start
-            let numberMatchesLeft = numberOfCards / 2;
+            numberMatchesLeft = numberOfCards / 2;
             document.getElementById('matches-left').innerText = numberMatchesLeft;
 
-            let click1 = null;
-            let click2 = null;
-
-            cardGrid.addEventListener("click", (event) => {
-                // console.log(event)
-                event.target.parentNode.style.transform = "rotateY(180deg)";
-
-                if (!click1) {
-                    click1 = event.target.id;
-                } else if (!click2) {
-                    click2 = event.target.id;
-                    //logic for if click 1 = click 2 .visibility-hidden
-                    // if not match then flip over after some time
-                }
-                console.log(click1);
-                console.log(click2);
-
-
-            })
-
             //Create a div for every card with the icon inside
-            for (let i = 0; i < numberOfCards; i++) {
-                let card = document.createElement('div');
-                let cardInner = document.createElement('div');
-                let cardFront = document.createElement('div');
-                let cardBack = document.createElement('div');
-                let icon = document.createElement('i');
+            createCards();
 
-                icon.classList.add('fas');
-                icon.classList.add(`fa-${randomIconArray[i]}`);
-                cardFront.id = randomIconArray[i];
-
-                cardInner.classList.add('flip-card-inner');
-                cardFront.classList.add('flip-card-front');
-                cardBack.classList.add('flip-card-back');
-                card.classList.add('flip-card');
-
-                cardBack.append(icon);
-                cardInner.append(cardFront);
-                cardInner.append(cardBack);
-                card.append(cardInner);
-                cardGrid.append(card);
-            }
         }
-
-
-
     });
 
 
- // Start game over 
+    // Click matching logic
+    cardGrid.addEventListener("click", (event) => {
+        // console.log(event)
+        event.target.parentNode.style.transform = "rotateY(180deg)";
 
-const startOvrBtn = document.querySelector('.reset-button');
-startOvrBtn.addEventListener('click', () => {
+        if (!click1) {
+            click1 = event.target.id;
+        } else if (!click2) {
+            click2 = event.target.id;
+            //logic for if click 1 = click 2 .visibility-hidden
+            // if not match then flip over after some time
+        }
+        console.log(click1);
+        console.log(click2);
 
-    location.reload();
-});
+
+    })
+
+
+    // Start game over 
+    startOvrBtn.addEventListener('click', () => {
+
+        location.reload();
+    });
+
 
    
 })();
