@@ -1,57 +1,62 @@
 (function () {
-
-
     // Default Home Page
-    const defaultPage = document.getElementsByTagName('body');
-
-
-
-
+    const defaultPage = document.getElementsByTagName("body");
 
     // Read in level difficulty buttons and create variable to store selection
-    const difficulty = document.querySelectorAll('.difficulty');
+    const difficulty = document.querySelectorAll(".difficulty");
     let levelSelected = null;
     let numberOfCards = null;
 
-    difficulty.forEach(level => level.addEventListener('click', (event) => {
-        //if level has been picked already, undo previous color 
-        if (levelSelected) {
-            document.getElementById(`${levelSelected}`).classList.remove('buttonSelectBackground');
+    difficulty.forEach((level) =>
+        level.addEventListener("click", (event) => {
+            //if level has been picked already, undo previous color
+            if (levelSelected) {
+                document
+                    .getElementById(`${levelSelected}`)
+                    .classList.remove("buttonSelectBackground");
+            }
+            //Otherwise set background and read in difficulty level
+            event.target.classList.add("buttonSelectBackground");
+            levelSelected = event.target.id;
+        })
+    );
 
-        }
-        //Otherwise set background and read in difficulty level
-        event.target.classList.add('buttonSelectBackground');
-        levelSelected = event.target.id;
-
-    }));
-
-    // Set # of cards based on levelSelected 
+    // Set # of cards based on levelSelected
     function setNumberOfCards() {
         switch (levelSelected) {
-            case 'easy':
+            case "easy":
                 numberOfCards = 6;
                 break;
-            case 'medium':
+            case "medium":
                 numberOfCards = 12;
                 break;
-            case 'hard':
+            case "hard":
                 numberOfCards = 18;
                 break;
             default:
                 numberOfCards = 6;
-        };
-    };
-
+        }
+    }
 
     //Array of icon names and placeholder for random order array
-    const iconArray = ['gem', 'bolt', 'anchor', 'fish', 'crown', 'dragon', 'moon', 'heart', 'tree'];
+    const iconArray = [
+        "gem",
+        "bolt",
+        "anchor",
+        "fish",
+        "crown",
+        "dragon",
+        "moon",
+        "heart",
+        "tree",
+    ];
     let randomIconArray = [];
 
     //Create random array of icon names based on numberOfCards
     function randomIcons() {
         if (randomIconArray.length > 0) {
             randomIconArray.length = 0;
-        };
+        }
 
         //Add doubles of each icon until number of cards is met
         for (let i = 0; i < numberOfCards / 2; i++) {
@@ -108,29 +113,21 @@
         };
     };
 
-
     //Read in start button and section for cards to be created in
-    const startGame = document.getElementById('start');
-    const cardGrid = document.querySelector('.card-grid');
-    const elementStart = document.querySelectorAll('.start-items');
-    const gameControls = document.querySelectorAll('.game-controls');
+    const startGame = document.getElementById("start");
+    const cardGrid = document.querySelector(".card-grid");
+    const elementStart = document.querySelectorAll(".start-items");
+    const gameControls = document.querySelectorAll(".game-controls");
 
-
-
-
-
-
-    startGame.addEventListener('click', () => {
+    startGame.addEventListener("click", () => {
         //If cards exist then exit event
-        let cards = document.querySelectorAll('.flip-card');
-        if (cards.length > 0) {
-
-        } else {
+        let cards = document.querySelectorAll(".flip-card");
+        if (cards.length > 0) {} else {
             //Show game-controls and hide start-items
-            elementStart.forEach(element => {
+            elementStart.forEach((element) => {
                 element.classList.add("display-none");
             });
-            gameControls.forEach(element => {
+            gameControls.forEach((element) => {
                 element.classList.remove("display-none");
             });
 
@@ -145,44 +142,26 @@
 
             //Set initial # of matches at start
             let numberMatchesLeft = numberOfCards / 2;
-            document.getElementById('matches-left').innerText = numberMatchesLeft;
+            document.getElementById("matches-left").innerText = numberMatchesLeft;
 
-            let click1 = null;
-            let click2 = null;
-
-            cardGrid.addEventListener("click", (event) => {
-                // console.log(event)
-                event.target.parentNode.style.transform = "rotateY(180deg)";
-
-                if (!click1) {
-                    click1 = event.target.id;
-                } else if (!click2) {
-                    click2 = event.target.id;
-                    //logic for if click 1 = click 2 .visibility-hidden
-                    // if not match then flip over after some time
-                }
-                console.log(click1);
-                console.log(click2);
-
-
-            })
+            
 
             //Create a div for every card with the icon inside
             for (let i = 0; i < numberOfCards; i++) {
-                let card = document.createElement('div');
-                let cardInner = document.createElement('div');
-                let cardFront = document.createElement('div');
-                let cardBack = document.createElement('div');
-                let icon = document.createElement('i');
+                let card = document.createElement("div");
+                let cardInner = document.createElement("div");
+                let cardFront = document.createElement("div");
+                let cardBack = document.createElement("div");
+                let icon = document.createElement("i");
 
-                icon.classList.add('fas');
+                icon.classList.add("fas");
                 icon.classList.add(`fa-${randomIconArray[i]}`);
                 cardFront.id = randomIconArray[i];
 
-                cardInner.classList.add('flip-card-inner');
-                cardFront.classList.add('flip-card-front');
-                cardBack.classList.add('flip-card-back');
-                card.classList.add('flip-card');
+                cardInner.classList.add("flip-card-inner");
+                cardFront.classList.add("flip-card-front");
+                cardBack.classList.add("flip-card-back");
+                card.classList.add("flip-card");
 
                 cardBack.append(icon);
                 cardInner.append(cardFront);
@@ -192,8 +171,28 @@
             }
         }
 
+        let click1 = null;
+        let click2 = null;
 
+        cardGrid.addEventListener("click", (event) => {
+            // console.log(event)
+            event.target.parentNode.style.transform = "rotateY(180deg)";
 
+            if (!click1) {
+                click1 = event.target.id;
+            } else if (!click2) {
+                click2 = event.target.id;
+                //logic for if click 1 = click 2 .visibility-hidden
+                // if not match then flip over after some time
+            }
+            if (click1.id === click2.id) {
+                click1.parentNode.classList.add("visibility-hidden");
+                click2.parentNode.classList.add("visibility-hidden");
+            } else {
+                cardBack.classList.remove("flip-card-back");
+            }
+            console.log(click1.id);
+            console.log(click2.id);
+        });
     });
-
 })();

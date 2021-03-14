@@ -159,6 +159,7 @@ h1{
     border-radius: 10%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    box-shadow: 2px 2px #888888;
 }
 
 /* Style the front side (fallback if image is missing) */
