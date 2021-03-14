@@ -13,6 +13,7 @@
     let timer = document.querySelector("#timer");
     let minutesLabel = document.getElementById("minutes");
     let secondsLabel = document.getElementById("seconds");
+    let pause = false;
 
     const iconArray = ['gem', 'bolt', 'anchor', 'fish', 'crown', 'dragon', 'moon', 'heart', 'tree'];
     let randomIconArray = [];
@@ -95,12 +96,26 @@
         };
     }
 
+    document.getElementById("pauseButton").addEventListener("click", () => {
+      // pause = true;
+      if (!pause) {
+        // clearInterval(refreshTimer);
+        console.log ("paused")
+        document.getElementById("pauseButton").innerText = "Resume";
+        pause = true;
+      } else {
+        console.log ("unpaused");
+        startTimer();
+        document.getElementById("pauseButton").innerText = "Pause";
+        pause = false;
+      }
+    })
 
     //function that starts the timer when the game starts
     const startTimer = () => {
         const setTime = () => {
             //I added this code in here (although not used yet) but maybe useful for when the game restarts.
-               if (numberMatchesLeft === 0) {
+               if (numberMatchesLeft === 0 || pause === true) {
                clearInterval(refreshTimer);
               }
             ++totalSeconds;
@@ -153,8 +168,6 @@
         document.getElementById("totalMinutes").innerText = minutesLabel.innerText;
         document.getElementById("totalSeconds").innerText = secondsLabel.innerText;
     }
-
-
 
     difficulty.forEach(level => level.addEventListener('click', (event) => {
         //if level has been picked already, undo previous color 
