@@ -97,10 +97,10 @@
         };
     }
 
+
+    //Pause resume Timer
     document.getElementById("pauseButton").addEventListener("click", () => {
-      // pause = true;
       if (!pause) {
-        // clearInterval(refreshTimer);
         console.log ("paused")
         document.getElementById("pauseButton").innerText = "Resume";
         pause = true;
@@ -168,6 +168,7 @@
         document.getElementById("finalMove").innerText = numberMovesMade;
         document.getElementById("totalMinutes").innerText = minutesLabel.innerText;
         document.getElementById("totalSeconds").innerText = secondsLabel.innerText;
+        confetti.start(1200, 50, 150);
     }
 
     difficulty.forEach(level => level.addEventListener('click', (event) => {
