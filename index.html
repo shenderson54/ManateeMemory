@@ -62,26 +62,23 @@
         </section>
 
 
-            <!-- <div id="popup1" class="overlay"> -->
-                <div class="popup display-none">
-                    <h2>&#127882; Congratulations &#127882;</h2>
-                    <a class="close" href=#>×</a>
-                    <div class="content-1">
-                        &#10024; Congratulations you're a winner &#10024;
-                    </div>
-                    <div class="content-2">
-                        <p>You made <span id=finalMove> </span> moves </p>
-                        <p>in <span id=totalTime> </span> </p>
-                        <p>Rating: <span id=starRating></span></p>
-                    </div>
-                    <button id="play-again" onclick="playAgain()">
-                        Play again </a>
-                    </button>
-                </div>
-            <!-- </div> -->
+        <div class="popup display-none">
+            <h2>&#127882; Congratulations &#127882;</h2>
+            <!-- <a class="close" href=#>×</a> -->
+            <div class="content-1">
+                &#10024; You won! &#10024;
+            </div>
+            <div class="content-2">
+                <p>You made <span id=finalMove></span> moves to make <span id='startMatches'></span> matches</p>
+                <p>in <span id=totalMinutes> </span> minutes and <span id=totalSeconds> </span> seconds! </p>
+                <p>Rating: <span id=starRating></span></p>
+            </div>
+            <button id="play-again" onclick="playAgain()">
+                Play again </a>
+            </button>
+        </div>
 
        
-
         <section class='card-grid'></section>
 
 

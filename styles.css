@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Coda', sans-serif;
 }
 
 html {
@@ -11,24 +12,26 @@ html {
     background-size: cover;
 }
 
-body{
+/* body{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* padding-top: 50px; */
-    /* opacity: 0.5; Just testing this out Thoughts */
-}
+    padding-top: 50px;
+    opacity: 0.5; Just testing this out Thoughts
+} */
 
 
 main {
     width: 80%;
-    /* min-height: 90vh; Kept height and min-height */
+    min-height: 70vh; 
     /* height: 700px; */
     background-color: rgba(0, 255, 255, 0.5); 
 /*     max-height: 80vh; */
     padding: 5%;
     margin: 5%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 0 150px 0 150px;
@@ -64,6 +67,10 @@ h1{
     /* position: absolute; */
 }
 
+.homePage button{
+    font-size: 1.2em;
+}
+
 .difficulty{
   padding: 20px 50px;
   margin: 3px auto;
@@ -83,6 +90,7 @@ h1{
 
 /* Styles for in-game controls/move counts */
 .game-controls{
+    width: 90%;
     height: 5vh;
     display: flex;
     justify-content: space-between;
@@ -90,12 +98,13 @@ h1{
     margin: 10px;
 }
 
-.game-controls button{
+.game-controls button, .popup button{
     color: white;
     background-color: #56ccc2;
     padding: 10px 10px;
     width: 20vw;
     max-width: 150px;
+    font-size: 1em;
 }
 
 /*we can add this back when we work on the star rating system*/
@@ -106,18 +115,35 @@ h1{
 
 
 /* Styles for Congrats! Popup*/
-
-/* #container3{
-    visibility: hidden;
-}
-
 .popup{
-    visibility: hidden;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.729);
+    padding: 15% 5%;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.score-panel{
-    visibility: hidden;
-} */
+.popup p{
+    display: inline;
+}
+
+.content-1{
+    margin: 5%;
+    font-size: 1.25em;
+}
+
+.content-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+
+
 
 
 
@@ -137,7 +163,7 @@ h1{
     width: 25vw;
     height: 31vw;
     perspective: 1000px;
-    
+
 }
 
 /* This container is needed to position the front and back side */
@@ -192,4 +218,8 @@ h1{
 
 .display-none{
     display: none;
+}
+
+.visibility-hidden{
+    visibility: hidden;
 }
