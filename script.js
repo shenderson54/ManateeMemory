@@ -22,6 +22,7 @@
     let numberOfCards = null;
     let numberMovesMade = 0;
     let numberMatchesLeft = null;
+    let bestScorePossilbe = null;
     let totalSeconds = 0;
     let click1 = null;
     let click2 = null;
@@ -173,7 +174,12 @@
         document.getElementById("totalMinutes").innerText = minutesLabel.innerText;
         document.getElementById("totalSeconds").innerText = secondsLabel.innerText;
         confetti.start(1200, 150);
+
+        //StarRating
+
     }
+
+
 
     difficulty.forEach(level => level.addEventListener('click', (event) => {
         //if level has been picked already, undo previous color 
@@ -213,6 +219,8 @@
 
             //Set initial # of matches at start
             numberMatchesLeft = numberOfCards / 2;
+            bestScorePossilbe = numberMatchesLeft;
+
             document.getElementById('matches-left').innerText = numberMatchesLeft;
 
             //Create a div for every card with the icon inside
