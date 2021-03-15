@@ -286,4 +286,5 @@ h2 {
     .visibility-hidden{
         visibility: hidden;
     }
+    @media only screen and (min-width: px)
 }
