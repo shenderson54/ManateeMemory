@@ -168,7 +168,7 @@
         document.getElementById("finalMove").innerText = numberMovesMade;
         document.getElementById("totalMinutes").innerText = minutesLabel.innerText;
         document.getElementById("totalSeconds").innerText = secondsLabel.innerText;
-        confetti.start(1200, 50, 150);
+        confetti.start(1200, 150);
     }
 
     difficulty.forEach(level => level.addEventListener('click', (event) => {
@@ -223,6 +223,7 @@
         if (event.target === cardGrid) {
             //If click is not exactly on a card, dont do anything
         } else {
+          startTimer();
             event.target.parentNode.style.transform = "rotateY(180deg)";
             if (click1 && click2) {
                 click1 = event.target;
