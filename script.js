@@ -222,7 +222,13 @@
 
 
     // Click matching logic
+    
     cardGrid.addEventListener("click", (event) => {
+        if (pause === true) {
+            startTimer();
+            document.getElementById("pauseButton").innerText = "Pause";
+            pause = false;
+        }
         if(event.target===cardGrid){
             //If click is not exactly on a card, dont do anything
         } else {
