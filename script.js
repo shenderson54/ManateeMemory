@@ -97,19 +97,22 @@
         };
     }
 
-
-    //Pause resume Timer
-    document.getElementById("pauseButton").addEventListener("click", () => {
+    function pauseResume () {
       if (!pause) {
-        console.log ("paused")
+        // console.log ("paused")
         document.getElementById("pauseButton").innerText = "Resume";
         pause = true;
       } else {
-        console.log ("unpaused");
+        // console.log ("unpaused");
         startTimer();
         document.getElementById("pauseButton").innerText = "Pause";
         pause = false;
       }
+    }
+
+    //Pause resume Timer
+    document.getElementById("pauseButton").addEventListener("click", () => {
+      pauseResume();
     })
 
     //function that starts the timer when the game starts
@@ -223,11 +226,10 @@
         if(event.target===cardGrid){
             //If click is not exactly on a card, dont do anything
         } else {
-          startTimer();
             event.target.parentNode.style.transform = "rotateY(180deg)";
             if(click1 && click2){
                 click1 = event.target;
-                click2 = null;
+                click2 = null; 
             } else{
                 if (!click1) {
                     click1 = event.target;
