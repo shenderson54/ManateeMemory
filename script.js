@@ -15,7 +15,7 @@
     let secondsLabel = document.getElementById("seconds");
     let pause = false;
 
-    const iconArray = ['gem', 'bolt', 'anchor', 'fish', 'crown', 'dragon', 'moon', 'heart', 'tree'];
+    const iconArray = ['gem', 'bolt', 'anchor', 'fish', 'crown', 'dragon', 'moon', 'heart', 'tree', 'dove'];
     let randomIconArray = [];
 
     let levelSelected = null;
@@ -37,10 +37,11 @@
                 numberOfCards = 12;
                 break;
             case 'hard':
-                numberOfCards = 18;
+                numberOfCards = 20;
                 break;
             default:
                 numberOfCards = 6;
+                levelSelected = 'easy';
         };
     };
 
@@ -87,8 +88,10 @@
             cardInner.classList.add('flip-card-inner');
             cardFront.classList.add('flip-card-front');
             cardBack.classList.add('flip-card-back');
+            cardBack.classList.add(`${levelSelected}`);
             card.classList.add('flip-card');
-
+            card.classList.add(`${levelSelected}`);
+            cardGrid.classList.add(`${levelSelected}`);
             cardBack.append(icon);
             cardInner.append(cardFront);
             cardInner.append(cardBack);
@@ -98,18 +101,22 @@
     }
 
 
+    function pauseResume () {
+      if (!pause) {
+        // console.log ("paused")
+        document.getElementById("pauseButton").innerText = "Resume";
+        pause = true;
+      } else {
+        // console.log ("unpaused");
+        startTimer();
+        document.getElementById("pauseButton").innerText = "Pause";
+        pause = false;
+      }
+    }
+
     //Pause resume Timer
     document.getElementById("pauseButton").addEventListener("click", () => {
-        if (!pause) {
-            console.log("paused")
-            document.getElementById("pauseButton").innerText = "Resume";
-            pause = true;
-        } else {
-            console.log("unpaused");
-            startTimer();
-            document.getElementById("pauseButton").innerText = "Pause";
-            pause = false;
-        }
+      pauseResume();
     })
 
     //function that starts the timer when the game starts
@@ -219,11 +226,18 @@
 
 
     // Click matching logic
+    
     cardGrid.addEventListener("click", (event) => {
-        if (event.target === cardGrid) {
+
+        if (pause === true) {
+            startTimer();
+            document.getElementById("pauseButton").innerText = "Pause";
+            pause = false;
+        }
+        if(event.target===cardGrid){
+          
             //If click is not exactly on a card, dont do anything
         } else {
-          startTimer();
             event.target.parentNode.style.transform = "rotateY(180deg)";
             if (click1 && click2) {
                 click1 = event.target;
