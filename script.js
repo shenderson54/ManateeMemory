@@ -15,7 +15,7 @@
     let secondsLabel = document.getElementById("seconds");
     let pause = false;
 
-    const iconArray = ['gem', 'bolt', 'anchor', 'fish', 'crown', 'dragon', 'moon', 'heart', 'tree'];
+    const iconArray = ['gem', 'bolt', 'anchor', 'fish', 'crown', 'dragon', 'moon', 'heart', 'tree', 'dove'];
     let randomIconArray = [];
 
     let levelSelected = null;
@@ -37,10 +37,11 @@
                 numberOfCards = 12;
                 break;
             case 'hard':
-                numberOfCards = 18;
+                numberOfCards = 20;
                 break;
             default:
                 numberOfCards = 6;
+                levelSelected = 'easy';
         };
     };
 
@@ -86,7 +87,10 @@
             cardInner.classList.add('flip-card-inner');
             cardFront.classList.add('flip-card-front');
             cardBack.classList.add('flip-card-back');
+            cardBack.classList.add(`${levelSelected}`);
             card.classList.add('flip-card');
+            card.classList.add(`${levelSelected}`);
+            cardGrid.classList.add(`${levelSelected}`);
             
             cardBack.append(icon);
             cardInner.append(cardFront);
@@ -218,6 +222,11 @@
 
     // Click matching logic
     cardGrid.addEventListener("click", (event) => {
+        if(pause){
+            startTimer();
+            document.getElementById("pauseButton").innerText = "Pause";
+            pause = false;
+        }
         if(event.target===cardGrid){
             //If click is not exactly on a card, dont do anything
         } else {
