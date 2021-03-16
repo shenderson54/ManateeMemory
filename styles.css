@@ -12,12 +12,13 @@ html {
     background-size: cover;
 }
 
+
 body{
     display: flex;
     height: 100vh;
     /* flex-direction: column; */
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     /* padding-top: 50px; */
     /* opacity: 0.5; Just testing this out Thoughts */
 }
@@ -187,7 +188,6 @@ h2 {
 .flip-card {
     background-color: transparent;
     width: 100%;
-    
     perspective: 1000px;
 }
 
@@ -229,7 +229,7 @@ h2 {
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
     background-color: #bbb;
-    background-image: url(./assets/manateeCard-01.png);
+    background: url(./assets/manateeCard-01.png);/* no-repeat center center fixed;*/
     background-size: cover;
     
 }
@@ -368,3 +368,4 @@ h2 {
     }
 
 }
+

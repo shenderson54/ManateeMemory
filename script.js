@@ -25,7 +25,7 @@
     let totalSeconds = 0;
     let click1 = null;
     let click2 = null;
-    
+
 
     // Set # of cards based on levelSelected 
     function setNumberOfCards() {
@@ -71,19 +71,20 @@
     /**
      * Create a div for every card with the icon inside
      */
-     function createCards(){
-    
-        for (let i = 0; i < numberOfCards; i++){
+    function createCards() {
+
+        for (let i = 0; i < numberOfCards; i++) {
             let card = document.createElement('div');
             let cardInner = document.createElement('div');
             let cardFront = document.createElement('div');
             let cardBack = document.createElement('div');
             let icon = document.createElement('i');
-    
+
             icon.classList.add('fas');
             icon.classList.add(`fa-${randomIconArray[i]}`);
             cardFront.id = randomIconArray[i];
-    
+            icon.setAttribute("alt", `${cardFront.id}`);
+
             cardInner.classList.add('flip-card-inner');
             cardFront.classList.add('flip-card-front');
             cardBack.classList.add('flip-card-back');
@@ -91,7 +92,6 @@
             card.classList.add('flip-card');
             card.classList.add(`${levelSelected}`);
             cardGrid.classList.add(`${levelSelected}`);
-            
             cardBack.append(icon);
             cardInner.append(cardFront);
             cardInner.append(cardBack);
@@ -100,28 +100,32 @@
         };
     }
 
-    document.getElementById("pauseButton").addEventListener("click", () => {
-      // pause = true;
+
+    function pauseResume () {
       if (!pause) {
-        // clearInterval(refreshTimer);
-        console.log ("paused")
+        // console.log ("paused")
         document.getElementById("pauseButton").innerText = "Resume";
         pause = true;
       } else {
-        console.log ("unpaused");
+        // console.log ("unpaused");
         startTimer();
         document.getElementById("pauseButton").innerText = "Pause";
         pause = false;
       }
+    }
+
+    //Pause resume Timer
+    document.getElementById("pauseButton").addEventListener("click", () => {
+      pauseResume();
     })
 
     //function that starts the timer when the game starts
     const startTimer = () => {
         const setTime = () => {
             //I added this code in here (although not used yet) but maybe useful for when the game restarts.
-               if (numberMatchesLeft === 0 || pause === true) {
-               clearInterval(refreshTimer);
-              }
+            if (numberMatchesLeft === 0 || pause === true) {
+                clearInterval(refreshTimer);
+            }
             ++totalSeconds;
             secondsLabel.innerHTML = pad(totalSeconds % 60);
             minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
@@ -139,7 +143,7 @@
     };
 
 
-    function cardsMismatch(card1,card2){
+    function cardsMismatch(card1, card2) {
         card1.parentNode.style.transform = "rotateY(0deg)";
         card2.parentNode.style.transform = "rotateY(0deg)";
 
@@ -147,30 +151,31 @@
         document.getElementById('moves-made').innerText = numberMovesMade;
     };
 
-    function cardsMatch(card1,card2){
+    function cardsMatch(card1, card2) {
         card1.parentNode.classList.add('visibility-hidden');
         card2.parentNode.classList.add('visibility-hidden');
-    
+
         numberMatchesLeft -= 1;
         document.getElementById('matches-left').innerText = numberMatchesLeft;
-    
+
         numberMovesMade += 1;
         document.getElementById('moves-made').innerText = numberMovesMade;
-    
+
         //If number matches = 0 show congrats screen
-        if(numberMatchesLeft===0){
+        if (numberMatchesLeft === 0) {
             updateCongratsScreen();
         }
-        
+
     }
 
-    function updateCongratsScreen(){
+    function updateCongratsScreen() {
         cardGrid.classList.add('display-none');
         document.querySelector('.popup').classList.remove('display-none');
-        document.getElementById("startMatches").innerText = numberOfCards/2;
+        document.getElementById("startMatches").innerText = numberOfCards / 2;
         document.getElementById("finalMove").innerText = numberMovesMade;
         document.getElementById("totalMinutes").innerText = minutesLabel.innerText;
         document.getElementById("totalSeconds").innerText = secondsLabel.innerText;
+        confetti.start(1200, 150);
     }
 
     difficulty.forEach(level => level.addEventListener('click', (event) => {
@@ -221,29 +226,32 @@
 
 
     // Click matching logic
+    
     cardGrid.addEventListener("click", (event) => {
-        if(pause){
+
+        if (pause === true) {
             startTimer();
             document.getElementById("pauseButton").innerText = "Pause";
             pause = false;
         }
         if(event.target===cardGrid){
+          
             //If click is not exactly on a card, dont do anything
         } else {
             event.target.parentNode.style.transform = "rotateY(180deg)";
-            if(click1 && click2){
+            if (click1 && click2) {
                 click1 = event.target;
                 click2 = null;
-            } else{
+            } else {
                 if (!click1) {
                     click1 = event.target;
                 } else if (!click2) {
                     click2 = event.target;
-                    
-                    setTimeout( () => {
-                        if(click1.id !== click2.id){
+
+                    setTimeout(() => {
+                        if (click1.id !== click2.id) {
                             cardsMismatch(click1, click2);
-                        }else{
+                        } else {
                             cardsMatch(click1, click2);
                         }
                     }, 1000);
@@ -267,5 +275,5 @@
         location.reload();
     });
 
-   
+
 })();
