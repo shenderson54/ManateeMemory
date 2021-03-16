@@ -25,6 +25,7 @@
     let totalSeconds = 0;
     let click1 = null;
     let click2 = null;
+    let animationRunning = null;
 
 
     // Set # of cards based on levelSelected 
@@ -114,10 +115,6 @@
       }
     }
 
-    //Pause resume Timer
-    document.getElementById("pauseButton").addEventListener("click", () => {
-      pauseResume();
-    })
 
     //function that starts the timer when the game starts
     const startTimer = () => {
@@ -234,9 +231,8 @@
             document.getElementById("pauseButton").innerText = "Pause";
             pause = false;
         }
-        if(event.target===cardGrid){
-          
-            //If click is not exactly on a card, dont do anything
+        if(event.target===cardGrid || animationRunning || event.target.parentNode.className === `card-grid ${levelSelected}`){
+            //If click is not exactly on a card or animation is ongoing, dont do anything
         } else {
             event.target.parentNode.style.transform = "rotateY(180deg)";
             if (click1 && click2) {
@@ -247,21 +243,27 @@
                     click1 = event.target;
                 } else if (!click2) {
                     click2 = event.target;
-
+                    animationRunning = true;
                     setTimeout(() => {
+                        
                         if (click1.id !== click2.id) {
                             cardsMismatch(click1, click2);
                         } else {
                             cardsMatch(click1, click2);
                         }
+                        animationRunning = false;
                     }, 1000);
-
+                    
                 }
             }
         }
 
     });
 
+    //Pause resume Timer
+    document.getElementById("pauseButton").addEventListener("click", () => {
+        pauseResume();
+    });
 
     // Start game over 
     startOvrBtn.addEventListener('click', () => {
