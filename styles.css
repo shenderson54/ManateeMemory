@@ -201,8 +201,8 @@ button:before{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 5%;
-    padding: 15% 5%;
+    margin: 20px;
+    padding: 50px 10px;
     width: 70%;    
 }
 
