@@ -167,22 +167,22 @@
 
     function leafAward(){
         let scorePercent = (bestScorePossilbe / numberMovesMade) * 100;
-        console.log(`${scorePercent}`);
+        // console.log(`${scorePercent}`);
 
-        const leafTwo = document.getElementById("leafTwo");
-        const leafThree = document.getElementById("leafThree");
+        const leafTwo = document.getElementById('leafTwo');
+        const leafThree = document.getElementById('leafThree');
 
         if (scorePercent <= 33) {
-            console.log ("one leaf");
-          leafTwo.classList.add("visibility-hidden");
-          leafThree.classList.add("visibility-hidden");
+            // console.log ('one leaf');
+          leafTwo.classList.add('visibility-hidden');
+          leafThree.classList.add('visibility-hidden');
           confetti.start(1200, 50);
         } else if (scorePercent < 66) {
-            console.log("two leaves");
-          leafThree.classList.add("visibility-hidden");
+            // console.log("two leaves");
+          leafThree.classList.add('visibility-hidden');
           confetti.start(1200, 100);
         } else {
-            console.log ("three leaves");
+            // console.log ('three leaves');
           confetti.start(1200, 500);
         }
       }
