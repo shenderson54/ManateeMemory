@@ -7,7 +7,9 @@
   const gameControls = document.querySelectorAll('.game-controls');
   const pauseButton = document.querySelector('.pause');
   const startOvrBtn = document.querySelector('.reset-button');
+  const pauseSymbol = document.querySelector('.fa-pause');
   const playAgainButton = document.getElementById('play-again');
+  const playSymbol = document.querySelector('.fa-play');
   const minutesLabel = document.getElementById('minutes');
   const secondsLabel = document.getElementById('seconds');
   let pause = false;
@@ -108,12 +110,14 @@
   function pauseResume() {
     if (!pause) {
       //  console.log ('paused')
-      document.getElementById('pauseButton').innerText = 'Resume';
+      pauseSymbol.classList.remove('fa-pause');
+      playSymbol.classList.add('fa-play');
       pause = true;
     } else {
       //  console.log ('unpaused');
       startTimer();
-      document.getElementById('pauseButton').innerText = 'Pause';
+      playSymbol.classList.remove('fa-play');
+      pauseSymbol.classList.add('fa-pause');
       pause = false;
     }
   }
@@ -259,8 +263,8 @@
   cardGrid.addEventListener('click', (event) => {
     if (pause === true) {
       startTimer();
-      document.getElementsByClassName.remove('fas fa-pause');
-      document.getElementsByClassName.addclass('fas fa-play');
+      playSymbol.classList.remove('fa-play');
+      pauseSymbol.classList.add('fa-pause');
       pause = false;
     }
     if (
