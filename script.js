@@ -1,5 +1,5 @@
-/* eslint-disable */
 (function () {
+
   const difficulty = document.querySelectorAll('.difficulty');
   const startGame = document.getElementById('start');
   const cardGrid = document.querySelector('.card-grid');
@@ -164,8 +164,43 @@
     card1.parentNode.classList.add('visibility-hidden');
     card2.parentNode.classList.add('visibility-hidden');
 
+
+    function leafAward(){
+        let scorePercent = (bestScorePossilbe / numberMovesMade) * 100;
+        // console.log(`${scorePercent}`);
+
+        const leafTwo = document.getElementById('leafTwo');
+        const leafThree = document.getElementById('leafThree');
+
+        if (scorePercent <= 33) {
+            // console.log ('one leaf');
+          leafTwo.classList.add('visibility-hidden');
+          leafThree.classList.add('visibility-hidden');
+          confetti.start(1200, 50);
+        } else if (scorePercent < 66) {
+            // console.log("two leaves");
+          leafThree.classList.add('visibility-hidden');
+          confetti.start(1200, 100);
+        } else {
+            // console.log ('three leaves');
+          confetti.start(1200, 500);
+        }
+      }
+
+    function updateCongratsScreen() {
+        cardGrid.classList.add('display-none');
+        document.querySelector('.popup').classList.remove('display-none');
+        document.getElementById("startMatches").innerText = numberOfCards / 2;
+        document.getElementById("finalMove").innerText = numberMovesMade;
+        document.getElementById("totalMinutes").innerText = minutesLabel.innerText;
+        document.getElementById("totalSeconds").innerText = secondsLabel.innerText;
+        confetti.start(1200, 150);
+        leafAward();
+    }
+
     numberMatchesLeft -= 1;
     document.getElementById('matches-left').innerText = numberMatchesLeft;
+
 
     numberMovesMade += 1;
     document.getElementById('moves-made').innerText = numberMovesMade;
@@ -187,6 +222,7 @@
       event.target.classList.add('buttonSelectBackground');
       levelSelected = event.target.id;
     }));
+
 
   startGame.addEventListener('click', () => {
     //  If cards exist then exit event
@@ -223,7 +259,8 @@
   cardGrid.addEventListener('click', (event) => {
     if (pause === true) {
       startTimer();
-      document.getElementById('pauseButton').innerText = 'Pause';
+      document.getElementsByClassName.remove('fas fa-pause');
+      document.getElementsByClassName.addclass('fas fa-play');
       pause = false;
     }
     if (
@@ -231,7 +268,6 @@
       || animationRunning
       || event.target.parentNode.className === `card-grid ${levelSelected}`
     ) {
-
       //  If click is not exactly on a card or animation is ongoing, don't do anything
     } else {
       event.target.parentNode.style.transform = 'rotateY(180deg)';
