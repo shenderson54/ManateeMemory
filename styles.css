@@ -74,6 +74,14 @@ h1{
 
 .homePage button{
     font-size: 1.2em;
+    border: 1px solid green;
+	backdrop-filter: blur(10px);
+	transform: skewX(-10deg);
+    border-radius: 20px 5px 20px 0px;
+    transition: all .3s ease;
+    text-shadow: 0 0 20px #fff;
+    animation: breath2 2s .5s infinite alternate;
+	transition: all .2s ease;
 }
 
 .difficulty{
@@ -112,6 +120,14 @@ h1{
     min-width: 100px;
     max-width: 150px;
     font-size: 1em;
+    border: 1px solid green;
+	backdrop-filter: blur(10px);
+	transform: skewX(-10deg);
+    border-radius: 20px 5px 20px 0px;
+    transition: all .3s ease;
+    text-shadow: 0 0 20px #fff;
+    animation: breath2 2s .5s infinite alternate;
+	transition: all .2s ease;
 }
 
 #timer{
