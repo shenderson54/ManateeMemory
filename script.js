@@ -231,6 +231,7 @@
       || animationRunning
       || event.target.parentNode.className === `card-grid ${levelSelected}`
     ) {
+
       //  If click is not exactly on a card or animation is ongoing, don't do anything
     } else {
       event.target.parentNode.style.transform = 'rotateY(180deg)';
