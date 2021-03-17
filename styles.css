@@ -321,16 +321,17 @@ h2 {
 
 .flip-card-back.easy{
     margin-top: -32vw;
-    font-size: 4em;
+    font-size: 1.5em;
 }
 
 .flip-card-back.medium{
     margin-top: -25vw;
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 .flip-card-back.hard{
     margin-top: -20vw;
+    font-size: 0.75em;
 }
 
 
@@ -367,6 +368,18 @@ h2 {
 
     #timer{
         font-size: 1.5em;
+    }
+
+    .flip-card-back.easy{
+        font-size: 1.75em;
+    }
+    
+    .flip-card-back.medium{
+        font-size: 1.5em;
+    }
+    
+    .flip-card-back.hard{
+        font-size: 1.25em;
     }
 }
 
@@ -409,6 +422,13 @@ h2 {
     /* .flip-card-back i{
         font-size: 3em;
     } */
+    .flip-card-back.medium{
+        font-size: 2em;
+    }
+
+    .flip-card-back.hard{
+        font-size: 1.5em;
+    }
 }
 
 @media only screen and (min-width: 700px){
@@ -433,19 +453,18 @@ h2 {
     }
 
     .flip-card-back.easy{
+        font-size: 2.5em;
         margin-top: -30vh;
-      
     }
     
     .flip-card-back.medium{
         margin-top: -21vh;
-        font-size: 1.25em;
+        font-size: 2em;
     }
     
     .flip-card-back.hard{
         margin-top: -17vh;
-        font-size: 1em;
+        font-size: 1.75em;
     }
 
 }
-
