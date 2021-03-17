@@ -200,7 +200,6 @@
     numberMatchesLeft -= 1;
     document.getElementById('matches-left').innerText = numberMatchesLeft;
 
-
     numberMovesMade += 1;
     document.getElementById('moves-made').innerText = numberMovesMade;
 
