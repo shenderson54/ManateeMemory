@@ -197,40 +197,6 @@
     card1.parentNode.classList.add('visibility-hidden');
     card2.parentNode.classList.add('visibility-hidden');
 
-
-    function leafAward(){
-        let scorePercent = (bestScorePossilbe / numberMovesMade) * 100;
-        // console.log(`${scorePercent}`);
-
-        const leafTwo = document.getElementById('leafTwo');
-        const leafThree = document.getElementById('leafThree');
-
-        if (scorePercent <= 33) {
-            // console.log ('one leaf');
-          leafTwo.classList.add('visibility-hidden');
-          leafThree.classList.add('visibility-hidden');
-          confetti.start(1200, 50);
-        } else if (scorePercent < 66) {
-            // console.log("two leaves");
-          leafThree.classList.add('visibility-hidden');
-          confetti.start(1200, 100);
-        } else {
-            // console.log ('three leaves');
-          confetti.start(1200, 500);
-        }
-      }
-
-    function updateCongratsScreen() {
-        cardGrid.classList.add('display-none');
-        document.querySelector('.popup').classList.remove('display-none');
-        document.getElementById("startMatches").innerText = numberOfCards / 2;
-        document.getElementById("finalMove").innerText = numberMovesMade;
-        document.getElementById("totalMinutes").innerText = minutesLabel.innerText;
-        document.getElementById("totalSeconds").innerText = secondsLabel.innerText;
-        confetti.start(1200, 150);
-        leafAward();
-    }
-
     numberMatchesLeft -= 1;
     document.getElementById('matches-left').innerText = numberMatchesLeft;
 
