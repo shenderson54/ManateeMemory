@@ -137,6 +137,8 @@ h1{
     width: 20vw;   
 }
 
+
+
 button:before{
     animation: breath 2s infinite alternate;
     animation-delay: .3s;
@@ -154,7 +156,7 @@ button:before{
     position: absolute;
     top: 3px;
 	width: calc(100% - 22px);        
-};
+}
 
 
 
@@ -163,26 +165,27 @@ button:before{
 		transform: scaleX(1);}
 	100%{
 		transform: scaleX(0.95);}
-    }
+}
 
 @keyframes breath2{
 	0%{
 		transform: skewX(-10deg) scaleX(1);}
 	100%{
 		transform: skewX(-10deg) scaleX(0.95);}
-    }
+    
+}
 
 
 @keyframes button{
     animation{ breath2: 2s, .5s, infinite, alternate;
 	transition: all .2s, ease;}
-};
+}
     
 
 
 #timer{
     font-size: 1.25em;
-};
+}
 
 
 /*we can add this back when we work on the star rating system*/
@@ -191,13 +194,12 @@ button:before{
 } */
 
 
-
 /* Styles for Congrats! Popup*/
 .popup{
-    align-items: center;
     background-color: rgba(255, 255, 255, 0.729);
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin: 5%;
     padding: 15% 5%;
@@ -227,6 +229,7 @@ h2 {
     justify-content: center;
     margin: 5%;   
 }
+
 
 
 
@@ -301,7 +304,8 @@ h2 {
 .flip-card-front {
     background-color: #bbb;
     background-size: cover;
-    background: url(./assets/manateeCard-01.png);/* no-repeat center center fixed;*/  
+    background-position: center;
+    background-image: url(./assets/manateeCard-01.png);
 }
 
 /* Style the back side */
@@ -316,10 +320,12 @@ h2 {
 
 .flip-card-back.easy{
     margin-top: -32vw;
+    font-size: 1.5em;
 }
 
 .flip-card-back.medium{
     margin-top: -25vw;
+    font-size: 1.25em;
 }
 
 .flip-card-back.hard{
@@ -399,9 +405,9 @@ h2 {
         visibility: hidden;
     }
 
-    .flip-card-back i{
+    /* .flip-card-back i{
         font-size: 3em;
-    }
+    } */
 }
 
 @media only screen and (min-width: 700px){
@@ -410,30 +416,34 @@ h2 {
     }
 
     .flip-card.easy{
-        height: 25vh;
-        max-width: 180px;
+        height: 30vh;
+        max-width: 24vh;
     }
     
     .flip-card.medium{
-        height: 20vh;
-        max-width: 145px;
+        height: 21vh;
+        max-width: 16vh;
     }
     
     .flip-card.hard{
         height: 17vh;
-        max-width: 120px;
+        max-width: 13vh;
+       
     }
 
     .flip-card-back.easy{
-        margin-top: -25vh;
+        margin-top: -30vh;
+      
     }
     
     .flip-card-back.medium{
-        margin-top: -20vh;
+        margin-top: -21vh;
+        font-size: 1.25em;
     }
     
     .flip-card-back.hard{
         margin-top: -17vh;
+        font-size: 1em;
     }
 
 }
