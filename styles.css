@@ -25,7 +25,7 @@ body{
 main {
     align-items: center;
     background-color: rgba(0, 255, 255, 0.5);
-    border-radius: 100px 0 100px 0;
+    border-radius: 100px 8px 100px 8px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -293,7 +293,6 @@ h2 {
 .flip-card-front,
 .flip-card-back {
     backface-visibility: hidden;
-    border-radius: 10%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     width: 100%;
@@ -306,12 +305,14 @@ h2 {
     background-size: cover;
     background-position: center;
     background-image: url(./assets/manateeCard-01.png);
+    border-radius: 20px 5px 20px 0;
 }
 
 /* Style the back side */
 .flip-card-back {
     align-items: center;
     background-color: #324947;
+    border-radius: 5px 20px 5px 20px;
     color: white;
     display: flex;
     justify-content: center;
@@ -320,7 +321,7 @@ h2 {
 
 .flip-card-back.easy{
     margin-top: -32vw;
-    font-size: 1.5em;
+    font-size: 4em;
 }
 
 .flip-card-back.medium{
