@@ -62,9 +62,6 @@
         </section>
 
 
-        
-
-
         <div class="popup display-none">
             <h2>&#127882; Congratulations &#127882;</h2>
             <!-- <a class="close" href=#>×</a> -->
@@ -74,7 +71,11 @@
             <div class="content-2">
                 <p>You used <span id=finalMove></span> moves to make <span id='startMatches'></span> matches</p>
                 <p>in <span id=totalMinutes> </span> minutes and <span id=totalSeconds> </span> seconds! </p>
-                <p>Rating: <span id=starRating></span></p>
+                <p>Rating: <span id=starRating>
+                    <i class="fab fa-pagelines"></i>
+                    <i id="leafTwo" class="fab fa-pagelines"></i>
+                    <i id="leafThree" class="fab fa-pagelines"></i>
+                </p>
             </div>
             <button id="play-again" onclick="playAgain()">
                 Play again </a>
