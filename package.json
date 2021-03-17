@@ -5,7 +5,9 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint *.js"
+    "lint": "eslint *.js", 
+    "csslint": "csslint styles.css",
+    "html-lint": "html-lint script.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   },
   "homepage": "https://github.com/oudsemam/ManateeMemory#readme",
   "devDependencies": {
+    "csslint": "^1.0.5",
     "eslint": "^7.22.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1"
