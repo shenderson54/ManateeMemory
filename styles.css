@@ -160,12 +160,12 @@ button::before{
 	/* box-shadow: 0 0 70px transparentize(rgb(95, 147, 216), .5), 0 5px 20px, transparentize(rgba(48, 138, 255, 1), .5); */
     content: "";
 	display: block;	
-	width: calc(100% - 25px);
-	height: calc(50px - 10px);
+	width: 90%;
+	height: 80%;
     position: absolute;
-	left: 15px;
+	left: 5%;
     right: 10px;	
-    top: 6px;   
+    top: 7%;   
 }
 
 
