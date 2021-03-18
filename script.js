@@ -12,8 +12,8 @@
   const playAgainButton = document.getElementById('play-again');
   const minutesLabel = document.getElementById('minutes');
   const secondsLabel = document.getElementById('seconds');
-  let pause = false;
-
+  
+  const randomIconArray = [];
   const iconArray = [
     'gem',
     'bolt',
@@ -26,9 +26,8 @@
     'tree',
     'dove',
   ];
-  const randomIconArray = [];
   
-
+  
   let levelSelected = null;
   let numberOfCards = null;
   let numberMovesMade = 0;
@@ -37,11 +36,12 @@
   let click1 = null;
   let click2 = null;
   let animationRunning = null;
+  let pause = false;
+
 
   /**
    * translatePage changes the language of the app based on the user's language 
    */
-
   function translatePage() {
     const userLang = navigator.language || navigator.userLanguage;
     let h1 = document.querySelector("header h1");
@@ -90,8 +90,8 @@
 
 
  /** 
-  *  Set # of cards based on levelSelected*/
-  
+  *  Set # of cards based on levelSelected
+  */
   function setNumberOfCards() {
     switch (levelSelected) {
       case 'easy':
@@ -110,23 +110,21 @@
   }
 
   /**
-   * Create random array of icon names based on numberOfCards */
-  
+   * Create random array of icon names based on numberOfCards 
+   */
   function randomIcons() {
     if (randomIconArray.length > 0) {
       randomIconArray.length = 0;
     }
 
-    /**
-     * Add doubles of each icon until number of cards is met */
+    // Add doubles of each icon until number of cards is met
     
     for (let i = 0; i < numberOfCards / 2; i++) {
       randomIconArray.push(iconArray[i]);
       randomIconArray.push(iconArray[i]);
     }
 
-    /**
-     * Randomly mix up the icons using a shuffle algorithm */
+    // Randomly mix up the icons using a shuffle algorithm 
     
     for (let i = 0; i < randomIconArray.length - 1; i++) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -168,9 +166,8 @@
   }
 
   /**
-   * pauseResume replaces the pause icon with the play icon
+   * pauseResume pauses timer and replaces the pause icon with the play icon
    */
-
   function pauseResume() {
     if (!pause) {
       //  console.log ('paused')
@@ -186,8 +183,9 @@
     }
   }
 
-  /**function that starts the timer when the game starts*/
-
+  /**
+   * function that starts the timer when the game starts
+   */
   const startTimer = () => {
     const pad = (val) => {
       let valString = val + '';
@@ -211,15 +209,6 @@
     let refreshTimer = setInterval(setTime, 1000);
   };
 
-  function updateCongratsScreen() {
-    cardGrid.classList.add('display-none');
-    document.querySelector('.popup').classList.remove('display-none');
-    document.getElementById('startMatches').innerText = numberOfCards / 2;
-    document.getElementById('finalMove').innerText = numberMovesMade;
-    document.getElementById('totalMinutes').innerText = minutesLabel.innerText;
-    document.getElementById('totalSeconds').innerText = secondsLabel.innerText;
-    confetti.start(1200, 150);
-  }
 
   /**
    * It returns the cards facedown and adds 1 to the counter
@@ -260,6 +249,9 @@
     }
   }
 
+  /**
+   * Displays congrats screen and writes final time and moves and leaf score 
+   */
   function updateCongratsScreen() {
     cardGrid.classList.add('display-none');
     document.querySelector('.popup').classList.remove('display-none');
@@ -270,6 +262,11 @@
     leafAward();
   }
 
+  /**
+   * If cards match, make disappear, decrease matches left, adds 1 to move counter
+   * @param {div} card1 First card selected
+   * @param {div} card2 Second card selected
+   */
   function cardsMatch(card1, card2) {
     card1.parentNode.classList.add('visibility-hidden');
     card2.parentNode.classList.add('visibility-hidden');
@@ -286,6 +283,9 @@
     }
   }
 
+  /**
+   * Sets level variable on level button selection
+   */
   difficulty.forEach((level) =>
     level.addEventListener('click', (event) => {
       if (levelSelected) {
@@ -299,6 +299,9 @@
     }));
 
 
+  /**
+   * On start, create cards with icons and start timer
+   */
   startGame.addEventListener('click', () => {
     //  If cards exist then exit event
     const cards = document.querySelectorAll('.flip-card');
@@ -330,7 +333,9 @@
     }
   });
 
-  //  Click matching logic
+  /**
+   * Read in two card click targets and compare IDs
+   */
   cardGrid.addEventListener('click', (event) => {
     if (pause === true) {
       startTimer();
@@ -368,18 +373,25 @@
     }
   });
 
-  //  Pause resume Timer
+  /**
+   * Click event for pause/resume timer
+   */
   pauseButton.addEventListener('click', () => {
     pauseResume();
   });
 
-  //  Start game over
+  /**
+   * Click even to start game over
+   */
   startOvrBtn.addEventListener('click', () => {
     location.reload();
   });
 
-  //  Play again button, same as start over button
+  /**
+   * Play again button, same as start over button
+   */
   playAgainButton.addEventListener('click', () => {
     location.reload();
   });
+
 })();
