@@ -76,12 +76,7 @@ h1{
 	font-size: 1.2em;
 	transform: skewX(-10deg);
     transition: all .3s ease;
-    /*transition: all .2s ease;*/
     text-shadow: 0 0 20px #fff;
-    
-    
-    
-	
 }
 
 .difficulty{
@@ -139,23 +134,23 @@ h1{
 
 
 
-button:before{
+button::before{
     animation: breath 2s infinite alternate;
     animation-delay: .3s;
     background-color: transparent;
     background-image: linear-gradient(to bottom, transparentize(rgba(48, 138, 255, 1), .5), transparentize(rgba(29, 96, 240, 1), .5));
     border: 1px solid #fff;
 	border-radius: 15px 3px 15px;
-    box-shadow: inset 0 0 30px 0; /*box-shadow: inset 0 0 30px 0; ///\\\ duplicate box-shadow properties not sure if both are needed*/
-	box-shadow: 0 0 70px transparentize(rgb(95, 147, 216), .5), 0 5px 20px, transparentize(rgba(48, 138, 255, 1), .5);
+    box-shadow: inset 0 0 30px 0;
+	/* box-shadow: 0 0 70px transparentize(rgb(95, 147, 216), .5), 0 5px 20px, transparentize(rgba(48, 138, 255, 1), .5); */
     content: "";
 	display: block;	
-	height: calc(50px - 8px);	
-	left: 10;	
-	margin-top: 15px;
+	width: calc(100% - 25px);
+	height: calc(50px - 10px);
     position: absolute;
-    top: 3px;
-	width: calc(100% - 22px);        
+	left: 15px;
+    right: 10px;	
+    top: 6px;   
 }
 
 
