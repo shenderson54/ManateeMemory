@@ -65,7 +65,7 @@
         saveLink.innerText = "No te olvides de salvar al manatí";
         easy.innerText = "Fácil";
         medium.innerText = "Medio";
-        hard.innerText = "Duro";
+        hard.innerText = "Difícil";
         start.innerText = "Empezar juego";
         break;
       case "fr": 
