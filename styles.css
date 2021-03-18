@@ -73,8 +73,8 @@ h1{
     backdrop-filter: blur(10px);
     border: 1px solid green;
     border-radius: 20px 5px 20px 0;
-	  font-size: 1.2em;
-	  transform: skewX(-10deg);
+	font-size: 1.2em;
+	transform: skewX(-10deg);
     transition: all .3s ease;
     text-shadow: 0 0 20px #fff;
 
@@ -139,7 +139,7 @@ h1{
     color: white;
     font-size: 1em;
     max-width: 150px;
-    min-width: 100px;
+    min-width: 30px;
     padding: 10px 10px;
     text-shadow: 0 0 20px #fff;
     transition: all .3s ease;
@@ -255,6 +255,7 @@ button#play-again{
     grid-gap: 10px;
     justify-items: center;
     width: 100%;
+    margin-bottom: 10px;
     /* grid-template-columns: 1fr 1fr 1fr; */   
 }
 
@@ -335,16 +336,17 @@ button#play-again{
 
 .flip-card-back.easy{
     margin-top: -32vw;
-    font-size: 4em;
+    font-size: 1.5em;
 }
 
 .flip-card-back.medium{
     margin-top: -25vw;
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 .flip-card-back.hard{
     margin-top: -20vw;
+    font-size: 0.75em;
 }
 
 
@@ -402,6 +404,18 @@ button#play-again{
     #timer{
         font-size: 1.5em;
     }
+
+    .flip-card-back.easy{
+        font-size: 1.75em;
+    }
+    
+    .flip-card-back.medium{
+        font-size: 1.5em;
+    }
+    
+    .flip-card-back.hard{
+        font-size: 1.25em;
+    }
 }
 
 @media only screen and (min-width: 600px){
@@ -442,6 +456,17 @@ button#play-again{
     /* .flip-card-back i{
         font-size: 3em;
     } */
+    .flip-card-back.easy{
+        font-size: 2.25em;
+    }
+
+    .flip-card-back.medium{
+        font-size: 2em;
+    }
+
+    .flip-card-back.hard{
+        font-size: 1.5em;
+    }
 }
 
 @media only screen and (min-width: 700px){
@@ -466,18 +491,18 @@ button#play-again{
     }
 
     .flip-card-back.easy{
+        font-size: 2.5em;
         margin-top: -30vh;
-      
     }
     
     .flip-card-back.medium{
         margin-top: -21vh;
-        font-size: 1.25em;
+        font-size: 2em;
     }
     
     .flip-card-back.hard{
         margin-top: -17vh;
-        font-size: 1em;
+        font-size: 1.75em;
     }
 
 }
