@@ -73,11 +73,31 @@ h1{
     backdrop-filter: blur(10px);
     border: 1px solid green;
     border-radius: 20px 5px 20px 0;
-	font-size: 1.2em;
-	transform: skewX(-10deg);
+	  font-size: 1.2em;
+	  transform: skewX(-10deg);
     transition: all .3s ease;
     text-shadow: 0 0 20px #fff;
+
 }
+
+.homePage a{
+    margin: 5vh auto -5vh;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.762);
+}
+
+.homePage a:hover{
+    text-decoration: underline;
+}
+
+.homePage a:active{
+    color: #324947;
+}
+
+.homePage a:visited{
+    color: rgba(255, 255, 255, 0.762);
+}
+
 
 .difficulty{
     background-color: #56ccc2;
@@ -96,11 +116,6 @@ h1{
     z-index: 1;
     /* display: block; */
     /* position: absolute; */
-    
-    
-    
-    
-    
     
 }
 
@@ -192,13 +207,15 @@ button::before{
 /* Styles for Congrats! Popup*/
 .popup{
     background-color: rgba(255, 255, 255, 0.729);
+    border-radius: 50px 5px 50px 3px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 20px;
+    max-width: 400px;
     padding: 50px 10px;
-    width: 70%;    
+    width: 80%;    
 }
 
 .popup p{
@@ -207,11 +224,11 @@ button::before{
 }
 
 h2 {
-    font-size: 1.1em;
+    font-size: 0.8em;
 }
 
 .content-1{
-    font-size: 1em;
+    font-size: 0.8em;
     margin: 5%;
     
 }
@@ -219,14 +236,16 @@ h2 {
 .content-2{
     align-items: center;
     display: flex;
-    font-size: 0.9em;
+    font-size: 0.75em;
     flex-direction: column;
     justify-content: center;
     margin: 5%;   
 }
 
-
-
+button#play-again{
+    min-width: 100px;
+    font-size: 0.8em;
+}
 
 
 
@@ -352,11 +371,31 @@ h2 {
 
 @media only screen and (min-width: 400px){
 
+    h2 {
+        font-size: 1.1em;
+    }
+
+    .content-1{
+        font-size: 0.9em;
+    }
+
+    .content-2{
+        font-size: 0.8em;  
+    }
+
     .game-controls{
         font-size: 1em;
     }
 
     .game-controls button, .popup button{
+        font-size: 1em;
+    }
+
+    .popup{
+        width: 70%;   
+    }
+
+    button#play-again{
         font-size: 1em;
     }
 
@@ -376,7 +415,6 @@ h2 {
     }
 
     .popup{
-        max-width: 400px;
         width: 60%;   
     }
     
