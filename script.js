@@ -167,6 +167,10 @@
     }
   }
 
+  /**
+   * pauseResume replaces the pause icon with the play icon
+   */
+
   function pauseResume() {
     if (!pause) {
       //  console.log ('paused')
@@ -182,7 +186,8 @@
     }
   }
 
-  //  function that starts the timer when the game starts
+  /**function that starts the timer when the game starts*/
+
   const startTimer = () => {
     const pad = (val) => {
       let valString = val + '';
@@ -194,7 +199,7 @@
     };
     
     const setTime = () => {
-      //  Checks for pause
+      /**   Checks for pause*/
       if (numberMatchesLeft === 0 || pause === true) {
         clearInterval(refreshTimer);
       }
@@ -217,7 +222,7 @@
   }
 
   /**
-   * It returns the cards facedown and add 1 to the counter
+   * It returns the cards facedown and adds 1 to the counter
    * @param {div} card1  First card selected
    * @param {div} card2  Second selected 
    */
