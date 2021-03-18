@@ -73,16 +73,31 @@ h1{
     backdrop-filter: blur(10px);
     border: 1px solid green;
     border-radius: 20px 5px 20px 0;
-	font-size: 1.2em;
-	transform: skewX(-10deg);
+	  font-size: 1.2em;
+	  transform: skewX(-10deg);
     transition: all .3s ease;
-    /*transition: all .2s ease;*/
     text-shadow: 0 0 20px #fff;
-    
-    
-    
-	
+
 }
+
+.homePage a{
+    margin: 5vh auto -5vh;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.762);
+}
+
+.homePage a:hover{
+    text-decoration: underline;
+}
+
+.homePage a:active{
+    color: #324947;
+}
+
+.homePage a:visited{
+    color: rgba(255, 255, 255, 0.762);
+}
+
 
 .difficulty{
     background-color: #56ccc2;
@@ -102,11 +117,6 @@ h1{
     /* display: block; */
     /* position: absolute; */
     
-    
-    
-    
-    
-    
 }
 
 
@@ -114,7 +124,7 @@ h1{
 .game-controls{
     align-items: center;
     display: flex;
-    font-size: 0.75em;
+    font-size: 0.8em;
     height: 5vh;
     justify-content: space-between;
     margin: 10px;
@@ -129,7 +139,7 @@ h1{
     color: white;
     font-size: 1em;
     max-width: 150px;
-    min-width: 30px;
+    min-width: 100px;
     padding: 10px 10px;
     text-shadow: 0 0 20px #fff;
     transition: all .3s ease;
@@ -137,23 +147,25 @@ h1{
     width: 20vw;   
 }
 
-button:before{
+
+
+button::before{
     animation: breath 2s infinite alternate;
     animation-delay: .3s;
     background-color: transparent;
     background-image: linear-gradient(to bottom, transparentize(rgba(48, 138, 255, 1), .5), transparentize(rgba(29, 96, 240, 1), .5));
     border: 1px solid #fff;
 	border-radius: 15px 3px 15px;
-    box-shadow: inset 0 0 30px 0; /*box-shadow: inset 0 0 30px 0; ///\\\ duplicate box-shadow properties not sure if both are needed*/
-	box-shadow: 0 0 70px transparentize(rgb(95, 147, 216), .5), 0 5px 20px, transparentize(rgba(48, 138, 255, 1), .5);
+    box-shadow: inset 0 0 30px 0;
+	/* box-shadow: 0 0 70px transparentize(rgb(95, 147, 216), .5), 0 5px 20px, transparentize(rgba(48, 138, 255, 1), .5); */
     content: "";
 	display: block;	
-	height: calc(50px - 8px);	
-	left: 10;	
-	margin-top: 15px;
+	width: calc(100% - 25px);
+	height: calc(50px - 10px);
     position: absolute;
-    top: 3px;
-	width: calc(100% - 22px);        
+	left: 15px;
+    right: 10px;	
+    top: 6px;   
 }
 
 
@@ -195,13 +207,15 @@ button:before{
 /* Styles for Congrats! Popup*/
 .popup{
     background-color: rgba(255, 255, 255, 0.729);
+    border-radius: 50px 5px 50px 3px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 20px;
+    max-width: 400px;
     padding: 50px 10px;
-    width: 70%;    
+    width: 80%;    
 }
 
 .popup p{
@@ -210,11 +224,11 @@ button:before{
 }
 
 h2 {
-    font-size: 1.1em;
+    font-size: 0.8em;
 }
 
 .content-1{
-    font-size: 1em;
+    font-size: 0.8em;
     margin: 5%;
     
 }
@@ -222,14 +236,16 @@ h2 {
 .content-2{
     align-items: center;
     display: flex;
-    font-size: 0.9em;
+    font-size: 0.75em;
     flex-direction: column;
     justify-content: center;
     margin: 5%;   
 }
 
-
-
+button#play-again{
+    min-width: 100px;
+    font-size: 0.8em;
+}
 
 
 
@@ -319,17 +335,16 @@ h2 {
 
 .flip-card-back.easy{
     margin-top: -32vw;
-    font-size: 1.25em;
+    font-size: 4em;
 }
 
 .flip-card-back.medium{
     margin-top: -25vw;
-    font-size: 1em;
+    font-size: 1.25em;
 }
 
 .flip-card-back.hard{
     margin-top: -20vw;
-    font-size: 0.75em;
 }
 
 
@@ -356,6 +371,18 @@ h2 {
 
 @media only screen and (min-width: 400px){
 
+    h2 {
+        font-size: 1.1em;
+    }
+
+    .content-1{
+        font-size: 0.9em;
+    }
+
+    .content-2{
+        font-size: 0.8em;  
+    }
+
     .game-controls{
         font-size: 1em;
     }
@@ -364,20 +391,16 @@ h2 {
         font-size: 1em;
     }
 
-    #timer{
-        font-size: 1.5em;
+    .popup{
+        width: 70%;   
     }
 
-    .flip-card-back.easy{
-        font-size: 1.75em;
+    button#play-again{
+        font-size: 1em;
     }
-    
-    .flip-card-back.medium{
+
+    #timer{
         font-size: 1.5em;
-    }
-    
-    .flip-card-back.hard{
-        font-size: 1.25em;
     }
 }
 
@@ -392,7 +415,6 @@ h2 {
     }
 
     .popup{
-        max-width: 400px;
         width: 60%;   
     }
     
@@ -420,13 +442,6 @@ h2 {
     /* .flip-card-back i{
         font-size: 3em;
     } */
-    .flip-card-back.medium{
-        font-size: 2em;
-    }
-
-    .flip-card-back.hard{
-        font-size: 1.5em;
-    }
 }
 
 @media only screen and (min-width: 700px){
@@ -451,18 +466,19 @@ h2 {
     }
 
     .flip-card-back.easy{
-        font-size: 2.5em;
         margin-top: -30vh;
+      
     }
     
     .flip-card-back.medium{
         margin-top: -21vh;
-        font-size: 2em;
+        font-size: 1.25em;
     }
     
     .flip-card-back.hard{
         margin-top: -17vh;
-        font-size: 1.75em;
+        font-size: 1em;
     }
 
 }
+
