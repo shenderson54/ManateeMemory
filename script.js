@@ -1,3 +1,4 @@
+/* eslint-disable */
 (function () {
 
   const difficulty = document.querySelectorAll('.difficulty');
@@ -26,6 +27,7 @@
     'dove',
   ];
   const randomIconArray = [];
+  
 
   let levelSelected = null;
   let numberOfCards = null;
@@ -36,7 +38,60 @@
   let click2 = null;
   let animationRunning = null;
 
-  //  Set # of cards based on levelSelected
+  /**
+   * translatePage changes the language of the app based on the user's language 
+   */
+
+  function translatePage() {
+    const userLang = navigator.language || navigator.userLanguage;
+    let h1 = document.querySelector("header h1");
+    let saveLink = document.getElementById("saveLink");
+    let easy = document.getElementById("easy");
+    let medium = document.getElementById("medium");
+    let hard = document.getElementById("hard");
+    let start = document.getElementById("start");
+    
+    switch (userLang) {
+      case "en-us":
+        h1.innerText = "Memory Game";
+        saveLink.innerText = "Don't Forget to Save The Manatee";
+        easy.innerText = "Easy";
+        medium.innerText = "Medium";
+        hard.innerText = "Hard";
+        start.innerText = "Start Game";
+        break;
+      case "es": 
+        h1.innerText = "Juego de memoria";
+        saveLink.innerText = "No te olvides de salvar al manatí";
+        easy.innerText = "Fácil";
+        medium.innerText = "Medio";
+        hard.innerText = "Duro";
+        start.innerText = "Empezar juego";
+        break;
+      case "fr": 
+        h1.innerText = "Jeux de mémoire";
+        saveLink.innerText = "N'oubliez pas de sauver le lamantin";
+        easy.innerText = "Facile";
+        medium.innerText = "Moyen";
+        hard.innerText = "Difficile";
+        start.innerText = "Démarrer jeu";
+        break;
+      case "zh":
+        h1.innerText = "记忆游戏";
+        saveLink.innerText = "不要忘记拯救海牛";
+        easy.innerText = "简单";
+        medium.innerText = "中等的";
+        hard.innerText = "难的";
+        start.innerText = "开始游戏";
+      
+    }
+  }
+  translatePage()
+
+
+ /** 
+  *  Set # of cards based on levelSelected*/
+  
   function setNumberOfCards() {
     switch (levelSelected) {
       case 'easy':
@@ -54,19 +109,25 @@
     }
   }
 
-  //  Create random array of icon names based on numberOfCards
+  /**
+   * Create random array of icon names based on numberOfCards */
+  
   function randomIcons() {
     if (randomIconArray.length > 0) {
       randomIconArray.length = 0;
     }
 
-    //  Add doubles of each icon until number of cards is met
+    /**
+     * Add doubles of each icon until number of cards is met */
+    
     for (let i = 0; i < numberOfCards / 2; i++) {
       randomIconArray.push(iconArray[i]);
       randomIconArray.push(iconArray[i]);
     }
 
-    //  Randomly mix up the icons using a shuffle algorithm
+    /**
+     * Randomly mix up the icons using a shuffle algorithm */
+    
     for (let i = 0; i < randomIconArray.length - 1; i++) {
       const j = Math.floor(Math.random() * (i + 1));
       const temp = randomIconArray[i];
@@ -155,6 +216,11 @@
     confetti.start(1200, 150);
   }
 
+  /**
+   * It returns the cards facedown and add 1 to the counter
+   * @param {div} card1  First card selected
+   * @param {div} card2  Second selected 
+   */
   function cardsMismatch(card1, card2) {
     card1.parentNode.style.transform = 'rotateY(0deg)';
     card2.parentNode.style.transform = 'rotateY(0deg)';
@@ -164,6 +230,9 @@
   }
 
 
+  /**
+   * leafAward gives leaves based on number of moves made
+   */
   function leafAward(){
     let scorePercent = ((numberOfCards / 2) / numberMovesMade) * 100;
     // console.log(`${scorePercent}`);
